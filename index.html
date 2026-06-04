@@ -6,247 +6,209 @@
 <title>MUSE · AI 视频制作能力 / AI Video Production Capabilities</title>
 <meta name="description" content="MUSE AI 视频制作能力与产品目录 — 商业 TVC、工业重绘、穿越机航拍、AI+实拍、数字人短剧、AI 配音。Dubai-based AI video studio.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="icon" href="assets/img/muse_logo.png">
-<style>/* ===== MUSE AI Video — "Chromatic Luxe" : chromatic-rgb × Middle-East gold luxury ===== */
+<style>/* ===== MUSE AI Video — "Maison Noir" : quiet editorial luxury ===== */
 :root{
-  --bg:#0B0A10; --bg2:#0E0C14; --panel:#15121C; --panel2:#1C1826; --line:#2A2536;
-  --gold:#C9A961; --gold-b:#E7CB8B; --gold-dim:#6E5C34;
-  --ivory:#F3EEE6; --soft:#CFC8BB; --muted:#8C8576;
-  --red:#FF3A5E; --cyan:#37D8F2;
-  --disp:'Space Grotesk',sans-serif; --serif:'Cormorant Garamond',Georgia,serif;
-  --mono:'JetBrains Mono',monospace; --body:'Inter',sans-serif;
-  --max:1180px;
-  --star:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><g fill='none' stroke='%23C9A961' stroke-width='1.1'><rect x='8.5' y='8.5' width='15' height='15'/><rect x='8.5' y='8.5' width='15' height='15' transform='rotate(45 16 16)'/></g></svg>");
+  --bg:#14110C; --bg2:#1A160F; --panel:#1A160F; --line:#332C20; --line-soft:#241F17;
+  --bone:#ECE5D6; --soft:#BBB2A0; --muted:#8B8372;
+  --bronze:#B2956A; --bronze-dim:#6E5C3E;
+  --disp:'Fraunces',Georgia,'Songti SC',serif; --body:'Inter','Helvetica Neue',sans-serif;
+  --max:1140px;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:80px}
-body{background:var(--bg);color:var(--ivory);font-family:var(--body);line-height:1.62;
-  -webkit-font-smoothing:antialiased;overflow-x:hidden}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{background:var(--bg);color:var(--bone);font-family:var(--body);line-height:1.72;
+  font-weight:400;-webkit-font-smoothing:antialiased;overflow-x:hidden;font-size:16px}
 img{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
-.mono{font-family:var(--mono)}
 .dim{color:var(--muted)}
-h1,h2,h3,h4{font-family:var(--disp);font-weight:700;letter-spacing:-.02em;line-height:1.02}
-/* chromatic signal signature — refined, restrained */
-.glitch{text-shadow:-1px 0 var(--red),1px 0 var(--cyan)}
-.big,.big2{text-shadow:-2.5px 0 var(--red),2.5px 0 var(--cyan),0 0 1px rgba(231,203,139,.25)}
-.kicker{color:var(--gold);font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;font-weight:700}
+.mono{font-family:var(--body)}                 /* neutralise old mono usage */
+h1,h2,h3,h4{font-family:var(--disp);font-weight:400;letter-spacing:-.015em;line-height:1.04;color:var(--bone)}
+.glitch,.big,.big2{text-shadow:none}           /* kill old RGB-split */
+.kicker{display:inline-flex;align-items:center;gap:.7rem;font-size:.7rem;letter-spacing:.34em;
+  text-transform:uppercase;color:var(--bronze);font-weight:500}
+.kicker::before{content:"";width:26px;height:1px;background:var(--bronze)}
+/* hide all old chromatic gimmicks */
+.scan,.hero-bars,.ornament,.rec{display:none!important}
 
-/* ambient: warm vignette + faint scanline + gold grain */
-.scan{position:fixed;inset:0;pointer-events:none;z-index:80}
-.scan::before{content:"";position:absolute;inset:0;
-  background:repeating-linear-gradient(0deg,rgba(231,203,139,.022) 0 1px,transparent 1px 3px);opacity:.7}
-.scan::after{content:"";position:absolute;inset:0;
-  background:radial-gradient(120% 80% at 50% 0%,transparent 55%,rgba(0,0,0,.55) 100%)}
+/* label helper */
+.lbl{font-size:.66rem;letter-spacing:.26em;text-transform:uppercase;color:var(--muted);font-weight:500}
 
 /* nav */
 .nav{position:sticky;top:0;z-index:90;display:flex;align-items:center;justify-content:space-between;
-  gap:1rem;padding:.8rem clamp(1rem,4vw,2.6rem);background:rgba(11,10,16,.78);
-  backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
-.brand{display:flex;align-items:center;gap:.65rem}
-.brand img{width:34px;height:auto}
-.brand span{font-family:var(--disp);font-weight:700;font-size:1.05rem;line-height:1;display:flex;flex-direction:column}
-.brand small{font-size:.5rem;letter-spacing:.3em;color:var(--gold);font-weight:400;margin-top:3px}
-.nav .links{display:flex;gap:1.6rem;font-size:.7rem;letter-spacing:.16em}
-.nav .links a{color:var(--soft);transition:color .25s;position:relative;padding-bottom:2px}
-.nav .links a::after{content:"";position:absolute;left:0;bottom:-2px;width:0;height:1px;background:var(--gold);transition:width .25s}
-.nav .links a:hover,.nav .links a:focus-visible{color:var(--gold)}
+  gap:1rem;padding:1.1rem clamp(1.4rem,5vw,3.4rem);background:rgba(20,17,12,.72);
+  backdrop-filter:blur(16px);border-bottom:1px solid var(--line-soft)}
+.brand{display:flex;align-items:center;gap:.7rem}
+.brand img{width:30px;height:auto;opacity:.95}
+.brand span{font-family:var(--disp);font-weight:500;font-size:1.15rem;line-height:1;display:flex;flex-direction:column;letter-spacing:.02em}
+.brand small{font-size:.46rem;letter-spacing:.36em;color:var(--muted);font-weight:400;margin-top:4px;font-family:var(--body)}
+.nav .links{display:flex;gap:2rem;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase}
+.nav .links a{color:var(--soft);transition:color .3s;position:relative}
+.nav .links a::after{content:"";position:absolute;left:0;bottom:-4px;width:0;height:1px;background:var(--bronze);transition:width .3s}
+.nav .links a:hover,.nav .links a:focus-visible{color:var(--bone)}
 .nav .links a:hover::after{width:100%}
-.nav-end{display:flex;align-items:center;gap:.85rem}
-.nav .lang{font-family:var(--mono);font-size:.6rem;letter-spacing:.18em;color:var(--gold);
-  border:1px solid var(--gold-dim);padding:.32rem .62rem;transition:.25s}
-.nav .lang:hover,.nav .lang:focus-visible{background:var(--gold);color:var(--bg);border-color:var(--gold)}
-.rec{font-size:.6rem;letter-spacing:.22em;color:var(--gold);display:flex;align-items:center;gap:.45rem}
-.rec::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--gold);
-  box-shadow:0 0 8px var(--gold);animation:blink 1.8s infinite}
-@keyframes blink{50%{opacity:.25}}
-@media(max-width:560px){.nav .rec{display:none}}
-
-/* ornament divider */
-.ornament{display:flex;align-items:center;justify-content:center;gap:1.2rem;max-width:var(--max);
-  margin:0 auto;padding:clamp(1.4rem,3vw,2.4rem) clamp(1rem,4vw,2.4rem)}
-.ornament::before,.ornament::after{content:"";height:1px;flex:1;max-width:320px;
-  background:linear-gradient(90deg,transparent,var(--gold-dim),transparent)}
-.ornament span{width:26px;height:26px;background:var(--star) center/contain no-repeat;opacity:.9;flex:none}
+.nav-end{display:flex;align-items:center;gap:1rem}
+.nav .lang{font-size:.64rem;letter-spacing:.22em;text-transform:uppercase;color:var(--bronze);transition:color .3s}
+.nav .lang:hover,.nav .lang:focus-visible{color:var(--bone)}
 
 /* hero */
-.hero{position:relative;padding:clamp(2.6rem,7vw,5rem) clamp(1rem,4vw,2.6rem) clamp(2rem,5vw,3.4rem);overflow:hidden}
-.hero-in{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:1.12fr .88fr;
-  gap:clamp(1.6rem,4vw,3.2rem);align-items:center}
-.hero-text .kicker{display:block;margin-bottom:1.1rem}
-.hero h1.big{font-size:clamp(3rem,9vw,6.3rem);line-height:.9;margin-bottom:1.3rem}
-.lead{font-family:var(--serif);font-size:clamp(1.4rem,3vw,2rem);font-weight:500;color:var(--gold-b);font-style:italic}
-.lead-en{font-size:.7rem;letter-spacing:.24em;color:var(--muted);margin-top:.5rem}
-.hero-stats{display:flex;gap:clamp(1.4rem,4vw,2.8rem);margin:1.9rem 0}
-.hero-stats div{display:flex;flex-direction:column}
-.hero-stats b{font-family:var(--serif);font-weight:600;font-size:clamp(2rem,5vw,3rem);line-height:1;color:var(--gold)}
-.hero-stats span{font-size:.58rem;letter-spacing:.2em;color:var(--muted);margin-top:.4rem}
-.cta{display:flex;gap:.9rem;flex-wrap:wrap}
-.btn{font-family:var(--mono);font-size:.76rem;letter-spacing:.1em;padding:.78rem 1.5rem;
-  border:1px solid var(--gold);color:var(--gold);transition:.25s;cursor:pointer}
-.btn:hover,.btn:focus-visible{background:var(--gold);color:var(--bg)}
-.btn.ghost{border-color:var(--line);color:var(--soft)}
-.btn.ghost:hover{border-color:var(--gold);color:var(--gold);background:transparent}
+.hero{position:relative;padding:clamp(3.5rem,9vw,7rem) clamp(1.4rem,5vw,3.4rem) clamp(2.5rem,6vw,4.5rem)}
+.hero-in{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:1.05fr .95fr;
+  gap:clamp(2rem,5vw,4.5rem);align-items:center}
+.hero-text .kicker{margin-bottom:1.6rem}
+.hero h1.big{font-size:clamp(3rem,8.5vw,6.4rem);line-height:1.0;font-weight:300;letter-spacing:-.025em;margin-bottom:1.6rem}
+.lead{font-family:var(--disp);font-size:clamp(1.3rem,2.6vw,1.85rem);font-weight:400;font-style:italic;color:var(--soft);line-height:1.4;max-width:30ch}
+.lead-en{font-size:.66rem;letter-spacing:.26em;text-transform:uppercase;color:var(--muted);margin-top:1rem}
+.hero-stats{display:flex;gap:clamp(1.8rem,5vw,3.4rem);margin:2.4rem 0 2rem;padding-top:1.8rem;border-top:1px solid var(--line-soft)}
+.hero-stats div{display:flex;flex-direction:column;gap:.45rem}
+.hero-stats b{font-family:var(--disp);font-weight:400;font-size:clamp(1.8rem,4vw,2.6rem);line-height:1;color:var(--bone)}
+.hero-stats span{font-size:.56rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+.cta{display:flex;gap:2rem;flex-wrap:wrap;align-items:center}
+.btn{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--bone);
+  padding-bottom:.4rem;border-bottom:1px solid var(--bronze);transition:.3s}
+.btn:hover,.btn:focus-visible{color:var(--bronze);border-color:var(--bone)}
+.btn.ghost{color:var(--muted);border-color:var(--line)}
+.btn.ghost:hover{color:var(--bone);border-color:var(--bronze)}
 .hero-media{position:relative}
-.hero-media img{width:100%;aspect-ratio:16/10;object-fit:cover;position:relative;z-index:2;
-  border-radius:140px 140px 0 0;border:1px solid var(--gold-dim)} /* mihrab arch top */
-.hero-media::before{content:"";position:absolute;inset:-8px -8px 8px -8px;border:1px solid var(--gold-dim);
-  border-radius:148px 148px 0 0;z-index:1}
-.hero-media .tag{position:absolute;top:-1.4rem;left:50%;transform:translateX(-50%);font-size:.6rem;letter-spacing:.2em;color:var(--gold);z-index:3}
-.hero-bars{position:absolute;inset:0;pointer-events:none;opacity:.5}
-.hero-bars i{position:absolute;left:0;right:0;height:2px}
-.hero-bars i:nth-child(1){top:26%;background:var(--cyan);transform:translateX(20px);opacity:.5}
-.hero-bars i:nth-child(2){top:60%;background:var(--red);transform:translateX(-30px);opacity:.4}
-.hero-bars i:nth-child(3){top:84%;height:1px;background:var(--gold);transform:translateX(40px)}
+.hero-media img{width:100%;aspect-ratio:4/5;object-fit:cover;filter:saturate(.92) contrast(1.02)}
+.hero-media::after{content:"";position:absolute;inset:0;border:1px solid var(--line);pointer-events:none}
+.hero-media .tag{position:absolute;left:1.1rem;bottom:1.1rem;font-size:.6rem;letter-spacing:.24em;
+  text-transform:uppercase;color:var(--bone);background:rgba(20,17,12,.5);padding:.4rem .7rem;backdrop-filter:blur(4px)}
 
 /* band */
-.band{max-width:920px;margin:0 auto;padding:clamp(1.6rem,4vw,2.6rem) clamp(1rem,4vw,2.4rem);text-align:center}
-.band-lead{font-family:var(--serif);font-size:clamp(1.3rem,3vw,1.9rem);font-weight:500;line-height:1.5;color:var(--ivory)}
-.band-en{font-size:.74rem;letter-spacing:.16em;color:var(--muted);margin-top:.9rem}
+.band{max-width:920px;margin:0 auto;padding:clamp(3rem,7vw,6rem) clamp(1.4rem,5vw,3.4rem);text-align:center}
+.band-lead{font-family:var(--disp);font-size:clamp(1.5rem,3.4vw,2.4rem);font-weight:300;line-height:1.45;color:var(--bone);font-style:italic}
+.band-en{font-size:.64rem;letter-spacing:.3em;text-transform:uppercase;color:var(--bronze);margin-top:1.6rem}
 
 /* sections */
-.sec{max-width:var(--max);margin:0 auto;padding:clamp(2.4rem,5.5vw,4.2rem) clamp(1rem,4vw,2.6rem)}
-.sec.alt{max-width:none;background:linear-gradient(180deg,var(--bg2),var(--bg));border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.sec{max-width:var(--max);margin:0 auto;padding:clamp(3.5rem,8vw,7rem) clamp(1.4rem,5vw,3.4rem)}
+.sec.alt{max-width:none;border-top:1px solid var(--line-soft)}
 .sec.alt>*{max-width:var(--max);margin-left:auto;margin-right:auto}
-.sec-head{margin-bottom:2.4rem}
-.sec-head h2{font-size:clamp(1.8rem,4.4vw,3rem);margin:.5rem 0 .55rem}
-.sec-head .big2{font-size:clamp(2.2rem,6vw,4rem)}
-.sec-head p{color:var(--soft);max-width:780px;font-size:.96rem}
-.sec-head .kicker{display:flex;align-items:center;gap:.6rem;margin-bottom:.2rem}
-.sec-head .kicker::before{content:"";width:18px;height:18px;background:var(--star) center/contain no-repeat;flex:none}
-.sec-head h2::after{content:"";display:block;width:56px;height:2px;margin-top:.9rem;
-  background:linear-gradient(90deg,var(--gold),transparent)}
+.sec-head{margin-bottom:clamp(2.5rem,5vw,4rem);max-width:760px}
+.sec-head .kicker{margin-bottom:1.2rem}
+.sec-head h2{font-size:clamp(2rem,4.6vw,3.4rem);font-weight:300;letter-spacing:-.02em;margin-bottom:1rem}
+.sec-head .big2{font-size:clamp(2.4rem,6vw,4.2rem)}
+.sec-head p{color:var(--soft);font-size:1.05rem;line-height:1.65;max-width:60ch}
 
-/* channel grid */
-.ch-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
-.ch-card{background:var(--panel);border:1px solid var(--line);overflow:hidden;cursor:pointer;
-  transition:transform .25s,border-color .25s,box-shadow .25s;position:relative}
-.ch-card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:var(--gold);opacity:.55;z-index:3}
-.ch-card:hover,.ch-card:focus-visible{transform:translateY(-5px);border-color:var(--gold-dim);box-shadow:0 18px 40px rgba(0,0,0,.5)}
-.ch-card:hover::before{opacity:1}
-.ch-pic{aspect-ratio:16/9;overflow:hidden}
-.ch-pic img{width:100%;height:100%;object-fit:cover;transition:transform .5s;filter:saturate(.92)}
-.ch-card:hover .ch-pic img{transform:scale(1.06)}
-.ch-meta{padding:1.1rem 1.2rem 1.3rem}
-.ch-meta .code{font-size:.64rem;letter-spacing:.2em;color:var(--gold)}
-.ch-meta h3{font-size:1.18rem;margin:.45rem 0 .35rem;color:var(--ivory)}
-.ch-meta .zh{color:var(--soft);font-size:.92rem}
-.ch-meta .dim{display:block;margin-top:.75rem;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+/* channels — editorial cards */
+.ch-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.6rem,3vw,2.6rem)}
+.ch-card{display:block;cursor:pointer;border-top:1px solid var(--line);padding-top:1.4rem;transition:border-color .35s}
+.ch-card:hover,.ch-card:focus-visible{border-color:var(--bronze)}
+.ch-pic{aspect-ratio:3/2;overflow:hidden;margin-bottom:1.3rem}
+.ch-pic img{width:100%;height:100%;object-fit:cover;filter:saturate(.88) contrast(1.02);
+  transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+.ch-card:hover .ch-pic img{transform:scale(1.04)}
+.ch-meta .code{font-size:.66rem;letter-spacing:.24em;color:var(--bronze)}
+.ch-meta h3{font-size:1.5rem;font-weight:400;margin:.7rem 0 .5rem;transition:color .3s}
+.ch-card:hover .ch-meta h3{color:var(--bronze)}
+.ch-meta .zh{color:var(--soft);font-size:.95rem;font-family:var(--disp);font-style:italic}
+.ch-meta .dim{display:none}
 
-/* mini grid */
-.mini-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.1rem}
-.mini{background:var(--panel);border:1px solid var(--line);padding:1.5rem 1.3rem;position:relative;transition:border-color .25s}
-.mini::before{content:"";position:absolute;top:0;left:0;width:100%;height:2px;background:var(--gold);opacity:.5}
-.mini:hover{border-color:var(--gold-dim)}
-.mini .big{font-family:var(--serif);font-weight:600;font-size:2.3rem;color:var(--gold);display:block;line-height:1}
-.mini .en{display:block;font-size:.6rem;letter-spacing:.18em;color:var(--gold);margin:.6rem 0 .35rem;text-transform:uppercase}
-.mini h4{font-size:1.06rem;margin-bottom:.45rem;color:var(--ivory)}
-.mini p{font-size:.85rem;color:var(--muted);line-height:1.5}
-.formula{margin-top:1.6rem;color:var(--ivory);font-size:.85rem;letter-spacing:.04em;
-  border-left:2px solid var(--gold);padding:.3rem 0 .3rem .95rem}
+/* pillars / scope mini cards */
+.mini-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(1.4rem,2.6vw,2.4rem)}
+.mini{border-top:1px solid var(--line);padding-top:1.4rem}
+.mini .big{font-family:var(--disp);font-weight:300;font-size:2.6rem;color:var(--bronze);display:block;line-height:1}
+.mini .en{display:block;font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;color:var(--bronze);margin:.9rem 0 .6rem}
+.mini h4{font-size:1.15rem;font-weight:400;margin-bottom:.55rem}
+.mini p{font-size:.88rem;color:var(--muted);line-height:1.6}
+.formula{margin-top:2.2rem;color:var(--soft);font-size:.86rem;letter-spacing:.02em;font-style:italic;
+  font-family:var(--disp);border-top:1px solid var(--line-soft);padding-top:1.4rem}
 
-/* modules */
-.modules{max-width:var(--max);margin:0 auto;padding:0 clamp(1rem,4vw,2.6rem)}
-.module{display:grid;grid-template-columns:.86fr 1fr;gap:clamp(1.6rem,3.5vw,3rem);
-  align-items:center;padding:clamp(2rem,4.5vw,3.2rem) 0;border-bottom:1px solid var(--line)}
+/* modules — editorial rows */
+.modules{max-width:var(--max);margin:0 auto;padding:0 clamp(1.4rem,5vw,3.4rem)}
+.module{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4.5rem);align-items:center;
+  padding:clamp(3rem,6vw,5.5rem) 0;border-top:1px solid var(--line-soft)}
 .module.flip .m-img{order:2}
 .m-img{position:relative}
-.m-img img{width:100%;aspect-ratio:16/9;object-fit:cover;border:1px solid var(--line);filter:saturate(.92)}
-.m-img::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--gold)}
-.m-img .tag{position:absolute;top:.7rem;left:.7rem;font-size:.58rem;letter-spacing:.16em;color:var(--gold);
-  background:rgba(11,10,16,.78);padding:.28rem .55rem;border:1px solid var(--gold-dim)}
-.m-body .kicker{color:var(--gold);display:flex;align-items:center;gap:.5rem;margin-bottom:.55rem}
-.m-body .kicker::before{content:"";width:15px;height:15px;background:var(--star) center/contain no-repeat;flex:none}
-.m-body h3{font-size:clamp(1.6rem,3.4vw,2.3rem);margin-bottom:.45rem;color:var(--ivory)}
-.zh-title{font-size:1.16rem;font-weight:600;margin-bottom:.55rem;color:var(--gold-b)}
-.tag-line{color:var(--soft);font-size:.93rem;margin-bottom:1.2rem}
-.caps{list-style:none;display:flex;flex-direction:column;gap:.8rem}
-.caps li{display:flex;gap:.75rem;align-items:flex-start}
-.caps .dot{width:7px;height:7px;background:var(--gold);margin-top:8px;flex:none;transform:rotate(45deg)}
-.caps strong{display:block;font-size:.98rem;color:var(--ivory)}
-.caps span{display:block;font-size:.82rem;color:var(--muted)}
-.metric{margin-top:1.2rem;color:var(--gold);font-size:.8rem;border-top:1px solid var(--line);padding-top:.8rem;letter-spacing:.02em}
+.m-img img{width:100%;aspect-ratio:4/3;object-fit:cover;filter:saturate(.88) contrast(1.02)}
+.m-img::after{content:"";position:absolute;inset:0;border:1px solid var(--line);pointer-events:none}
+.m-img .tag{position:absolute;left:1rem;bottom:1rem;font-size:.56rem;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--bone);background:rgba(20,17,12,.5);padding:.35rem .6rem;backdrop-filter:blur(4px)}
+.m-body .kicker{color:var(--bronze);margin-bottom:1.1rem}
+.m-body h3{font-size:clamp(1.9rem,3.6vw,2.8rem);font-weight:300;margin-bottom:1rem;letter-spacing:-.02em}
+.zh-title{font-family:var(--disp);font-style:italic;font-size:1.25rem;color:var(--soft);margin-bottom:1rem}
+.tag-line{color:var(--soft);font-size:1.02rem;line-height:1.6;margin-bottom:1.8rem;max-width:46ch}
+.caps{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:1.1rem 1.6rem}
+.caps li{padding-top:.9rem;border-top:1px solid var(--line-soft)}
+.caps strong{display:block;font-size:.95rem;font-weight:600;margin-bottom:.25rem;color:var(--bone)}
+.caps span{display:block;font-size:.8rem;color:var(--muted);line-height:1.5}
+.metric{margin-top:2rem;color:var(--bronze);font-size:.78rem;letter-spacing:.16em;text-transform:uppercase}
 
-/* showcase */
-.showcase .sec-head{text-align:center}
+/* showcase — gallery */
+.showcase .sec-head{text-align:center;margin-left:auto;margin-right:auto}
 .showcase .sec-head .kicker{justify-content:center}
-.showcase .sec-head h2::after{margin-left:auto;margin-right:auto}
 .showcase .sec-head p{margin:0 auto}
-.reel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem}
-.reel{background:var(--panel);border:1px solid var(--line);overflow:hidden;display:flex;flex-direction:column;transition:border-color .25s,box-shadow .25s}
-.reel:hover{border-color:var(--gold-dim);box-shadow:0 16px 36px rgba(0,0,0,.5)}
+.reel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.4rem,2.6vw,2.2rem)}
+.reel{display:flex;flex-direction:column}
 .reel .frame{position:relative;aspect-ratio:16/9;background:#000;overflow:hidden}
-.reel .frame::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--gold);z-index:2}
-.reel .frame img{width:100%;height:100%;object-fit:cover;filter:saturate(.94)}
+.reel .frame img{width:100%;height:100%;object-fit:cover;filter:saturate(.88) contrast(1.02);transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+.reel:hover .frame img{transform:scale(1.04)}
 .reel .frame video{width:100%;height:100%;object-fit:contain;background:#000}
-.reel .play{position:absolute;inset:0;margin:auto;width:64px;height:64px;border-radius:50%;
-  border:1px solid var(--gold);background:rgba(11,10,16,.4);color:var(--gold);display:flex;align-items:center;
-  justify-content:center;cursor:pointer;transition:.25s;backdrop-filter:blur(3px)}
-.reel .play:hover,.reel .play:focus-visible{background:var(--gold);border-color:var(--gold);color:var(--bg);transform:scale(1.06)}
-.reel .sig{position:absolute;top:.55rem;left:.55rem;font-size:.56rem;letter-spacing:.14em;color:var(--gold-b);
-  background:rgba(11,10,16,.72);padding:.22rem .5rem;border:1px solid var(--gold-dim)}
-.reel figcaption{padding:1.1rem 1.2rem 1.3rem;display:flex;flex-direction:column;gap:.38rem;flex:1}
-.reel .chip{align-self:flex-start;font-size:.58rem;letter-spacing:.12em;color:var(--gold);
-  border:1px solid var(--gold-dim);padding:.22rem .55rem;margin-bottom:.25rem}
-.reel h4{font-size:1.02rem;color:var(--ivory)}
-.reel .zh{font-size:.9rem;font-weight:600;color:var(--gold-b)}
-.reel .desc{font-size:.8rem;color:var(--muted);line-height:1.45}
-.reel .metric{margin-top:auto;border-top:1px solid var(--line);padding-top:.65rem;color:var(--gold);font-size:.78rem}
+.reel .play{position:absolute;inset:0;margin:auto;width:58px;height:58px;border-radius:50%;
+  border:1px solid var(--bone);background:transparent;color:var(--bone);display:flex;align-items:center;
+  justify-content:center;cursor:pointer;transition:.35s;opacity:.92}
+.reel .play:hover,.reel .play:focus-visible{background:var(--bone);color:var(--bg);border-color:var(--bone)}
+.reel .sig{display:none}
+.reel figcaption{padding:1.1rem 0 0;display:flex;flex-direction:column;gap:.4rem}
+.reel .chip{font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--bronze)}
+.reel h4{font-size:1.18rem;font-weight:400}
+.reel .zh{font-family:var(--disp);font-style:italic;font-size:1rem;color:var(--soft)}
+.reel .desc{font-size:.86rem;color:var(--muted);line-height:1.55}
+.reel .metric{display:none}
 
-/* tables */
-.table-wrap{overflow-x:auto;border:1px solid var(--line)}
+/* tables — hairline editorial */
+.table-wrap{overflow-x:auto}
 table{width:100%;border-collapse:collapse;min-width:680px}
-.sku thead th,.idx-tbl thead th{background:var(--panel2);color:var(--gold);font-family:var(--mono);
-  font-size:.64rem;letter-spacing:.12em;text-align:left;padding:.8rem .9rem;border-bottom:1px solid var(--gold-dim);font-weight:700}
-.sku td{padding:.7rem .9rem;border-bottom:1px solid var(--line);font-size:.9rem;vertical-align:middle}
-.sku tbody tr{transition:background .2s}
-.sku tbody tr:hover{background:rgba(201,169,97,.05)}
-.sku .code{color:var(--gold-b);font-weight:700;font-size:.78rem;font-family:var(--mono)}
-.sku .scn strong{display:block;color:var(--ivory)}
-.sku .scn span{font-size:.64rem;color:var(--muted)}
+.sku thead th,.idx-tbl thead th{color:var(--muted);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;
+  text-align:left;padding:0 1rem 1.1rem;border-bottom:1px solid var(--line);font-weight:500}
+.sku td{padding:1.4rem 1rem;border-bottom:1px solid var(--line-soft);font-size:.92rem;vertical-align:middle}
+.sku .code{color:var(--bronze);font-size:.72rem;letter-spacing:.14em}
+.sku .scn strong{display:block;font-family:var(--disp);font-size:1.2rem;font-weight:400;color:var(--bone)}
+.sku .scn span{font-size:.64rem;letter-spacing:.12em;color:var(--muted);text-transform:uppercase}
 .sku td:nth-child(3),.sku td:nth-child(4){color:var(--soft)}
-.sku .eta{color:var(--gold);font-weight:600;white-space:nowrap;font-family:var(--mono);font-size:.82rem}
+.sku .eta{color:var(--bronze);white-space:nowrap;font-size:.84rem;letter-spacing:.06em}
 .idx{margin-top:.5rem}
-.idx summary{cursor:pointer;color:var(--gold);font-size:.76rem;letter-spacing:.12em;padding:.8rem 0;font-family:var(--mono)}
-.idx-tbl td{padding:.42rem .8rem;border-bottom:1px solid var(--line);font-size:.78rem}
-.idx-tbl .sig{color:var(--gold-b);font-weight:700;font-family:var(--mono)}
-.idx-tbl .eta{color:var(--gold);text-align:right;font-family:var(--mono)}
-.idx-tbl tbody tr:hover{background:rgba(201,169,97,.05)}
+.idx summary{cursor:pointer;color:var(--bronze);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;padding:1rem 0;list-style:none}
+.idx summary::-webkit-details-marker{display:none}
+.idx-tbl td{padding:.7rem 1rem;border-bottom:1px solid var(--line-soft);font-size:.8rem;color:var(--soft)}
+.idx-tbl .sig{color:var(--bronze)}
+.idx-tbl .eta{color:var(--muted);text-align:right}
 
 /* contact */
-.contact{position:relative;text-align:center;padding:clamp(3rem,8vw,5.5rem) clamp(1rem,4vw,2.6rem);
-  border-top:1px solid var(--line);overflow:hidden;background:linear-gradient(180deg,var(--bg2),var(--bg))}
-.contact h2{font-size:clamp(2.6rem,9vw,5.5rem);margin-bottom:.7rem}
-.contact .dim{letter-spacing:.28em;font-size:.7rem;color:var(--gold)}
-.contact-grid{max-width:920px;margin:2.4rem auto 1.5rem;display:grid;grid-template-columns:repeat(4,1fr);gap:1.1rem}
-.cc{background:var(--panel);border:1px solid var(--line);padding:1.25rem;position:relative;
-  display:flex;flex-direction:column;gap:.45rem;transition:.25s}
-.cc::before{content:"";position:absolute;top:0;left:0;width:100%;height:2px;background:var(--gold);opacity:.55}
-a.cc:hover,a.cc:focus-visible{transform:translateY(-4px);border-color:var(--gold-dim)}
-.cc .mono{font-size:.58rem;letter-spacing:.18em;color:var(--muted)}
-.cc b{font-family:var(--serif);font-weight:600;font-size:1.12rem;color:var(--gold-b);word-break:break-word}
-.foot{color:var(--muted);font-size:.64rem;letter-spacing:.12em;margin-top:1.1rem}
+.contact{position:relative;text-align:center;padding:clamp(4rem,9vw,7rem) clamp(1.4rem,5vw,3.4rem);border-top:1px solid var(--line-soft)}
+.contact h2{font-size:clamp(2.8rem,9vw,6rem);font-weight:300;letter-spacing:-.02em;margin-bottom:1.2rem}
+.contact .dim{letter-spacing:.3em;font-size:.66rem;text-transform:uppercase;color:var(--bronze)}
+.contact-grid{max-width:880px;margin:3rem auto 2rem;display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+  border-top:1px solid var(--line)}
+.cc{padding:1.8rem 1.2rem;display:flex;flex-direction:column;gap:.55rem;transition:.3s;border-bottom:1px solid var(--line-soft)}
+.cc+.cc{border-left:1px solid var(--line-soft)}
+a.cc:hover,a.cc:focus-visible{background:var(--bg2)}
+.cc .mono{font-size:.58rem;letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
+.cc b{font-family:var(--disp);font-weight:400;font-size:1.12rem;color:var(--bone);word-break:break-word}
+a.cc:hover b{color:var(--bronze)}
+.foot{color:var(--muted);font-size:.62rem;letter-spacing:.16em;margin-top:1.4rem;text-transform:uppercase}
 
 /* responsive */
 @media(max-width:900px){
   .hero-in{grid-template-columns:1fr}
-  .hero-media{order:-1;max-width:440px;margin:0 auto}
+  .hero-media{max-width:380px;margin:0 0 1rem}
   .ch-grid,.mini-grid{grid-template-columns:repeat(2,1fr)}
   .reel-grid{grid-template-columns:repeat(2,1fr)}
   .contact-grid{grid-template-columns:repeat(2,1fr)}
   .module,.module.flip .m-img{grid-template-columns:1fr;order:0}
-  .module .m-img{order:0!important;margin-bottom:1.3rem}
+  .module .m-img{order:0!important;margin-bottom:1.6rem}
+  .cc:nth-child(odd){border-left:none}
 }
 @media(max-width:560px){
   .nav .links{display:none}
   .ch-grid,.mini-grid,.reel-grid,.contact-grid{grid-template-columns:1fr}
-  .hero-stats{gap:1.4rem}
-  .ornament::before,.ornament::after{max-width:90px}
+  .caps{grid-template-columns:1fr}
+  .cc{border-left:none!important}
 }
 @media (prefers-reduced-motion: reduce){
   *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
-  .ch-card:hover .ch-pic img{transform:none}
+  .ch-card:hover .ch-pic img,.reel:hover .frame img{transform:none}
 }
 </style>
 </head>
@@ -266,18 +228,18 @@ a.cc:hover,a.cc:focus-visible{transform:translateY(-4px);border-color:var(--gold
   <div class="hero-bars" aria-hidden="true"><i></i><i></i><i></i></div>
   <div class="hero-in">
     <div class="hero-text">
-      <span class="kicker mono">▶ CH.00 / SIGNAL.SPLIT / 2026</span>
+      <span class="kicker">MUSE · 迪拜 · AI 影像工作室</span>
       <h1 class="glitch big">AI VIDEO<br>STUDIO.</h1>
       <p class="lead">AI 视频制作能力 · 产品目录</p>
       <p class="lead-en mono">AI VIDEO PRODUCTION CAPABILITIES · PRODUCT CATALOG</p>
       <div class="hero-stats">
-        <div><b>49</b><span class="mono">SIGNAL REELS</span></div>
-        <div><b>07</b><span class="mono">CHANNELS</span></div>
-        <div><b>78m</b><span class="mono">ON RECORD</span></div>
+        <div><b>49</b><span class="mono">演示样片</span></div>
+        <div><b>07</b><span class="mono">能力频道</span></div>
+        <div><b>78m</b><span class="mono">累计时长</span></div>
       </div>
-      <div class="cta"><a class="btn" href="#showcase">查看演示样片 ▶</a><a class="btn ghost" href="#contact">联系我们</a></div>
+      <div class="cta"><a class="btn" href="#showcase">查看演示样片</a><a class="btn ghost" href="#contact">联系我们</a></div>
     </div>
-    <div class="hero-media"><img src="assets/img/hero.jpg" alt="MUSE showreel" loading="eager"><span class="mono tag">▶ SHOWREEL · SIGNAL 01</span></div>
+    <div class="hero-media"><img src="assets/img/hero.jpg" alt="MUSE showreel" loading="eager"><span class="tag">Showreel · 01</span></div>
   </div>
 </header>
 
@@ -333,68 +295,68 @@ a.cc:hover,a.cc:focus-visible{transform:translateY(-4px);border-color:var(--gold
 <div class="modules"><section class="module " id="mod-TVC" style="--a:var(--cyan)">
   <div class="m-img"><img src="assets/poster/v32.jpg" alt="COMMERCIAL TVC" loading="lazy"><span class="tag mono">CH.01 · REEL</span></div>
   <div class="m-body">
-    <span class="kicker mono">▶ End-to-End Production</span>
+    <span class="kicker">End-to-End Production</span>
     <h3 class="glitch">COMMERCIAL TVC</h3>
     <p class="zh-title">AI 商业 TVC · 全流程制作</p>
     <p class="tag-line">从剧本分镜到成片调色，全链路 AI 生产商业广告片。</p>
     <ul class="caps"><li><span class="dot"></span><div><strong>全流程</strong><span>剧本 → 分镜 → 生图 → 生视频 → 调色</span></div></li><li><span class="dot"></span><div><strong>1 小时出片</strong><span>从脚本到样片，最快一小时一条 TVC</span></div></li><li><span class="dot"></span><div><strong>跨镜一致性</strong><span>产品 · 角色 · 场景跨镜锁定</span></div></li><li><span class="dot"></span><div><strong>多版交付</strong><span>横竖双版 + 多语字幕 · 1080p / 4K</span></div></li></ul>
-    <p class="metric mono">代表作 · 换天 TVC ❤5.1k · 最稳定商业片工作流 ❤1.2k</p>
+    <p class="metric mono">代表作 — 换天 TVC · 商业片工作流</p>
   </div></section>
 <section class="module flip" id="mod-RPT" style="--a:var(--red)">
   <div class="m-img"><img src="assets/poster/v26.jpg" alt="REPAINT &amp; SPACE" loading="lazy"><span class="tag mono">CH.02 · REEL</span></div>
   <div class="m-body">
-    <span class="kicker mono">▶ Industrial Reconstruction</span>
+    <span class="kicker">Industrial Reconstruction</span>
     <h3 class="glitch">REPAINT &amp; SPACE</h3>
     <p class="zh-title">AI 工业级重绘 &amp; 空间重构</p>
     <p class="tag-line">把粗糙实拍、老素材一键重绘为工业级画面。</p>
     <ul class="caps"><li><span class="dot"></span><div><strong>工业重绘</strong><span>工厂实拍变废为宝 · 老片翻新修复</span></div></li><li><span class="dot"></span><div><strong>TVC 级换天</strong><span>一套智能体换天，告别抠图追踪</span></div></li><li><span class="dot"></span><div><strong>空间重构</strong><span>先建稳定空间结构，再生成画面</span></div></li><li><span class="dot"></span><div><strong>降本替代</strong><span>替代重度 AE / C4D 后期依赖</span></div></li></ul>
-    <p class="metric mono">代表作 · 变废为宝 ❤7.4k · 换天黑科技 ❤5.1k</p>
+    <p class="metric mono">代表作 — 工厂变废为宝 · 换天黑科技</p>
   </div></section>
 <section class="module " id="mod-FPV" style="--a:var(--green)">
   <div class="m-img"><img src="assets/poster/v40.jpg" alt="CINEMATOGRAPHY" loading="lazy"><span class="tag mono">CH.03 · REEL</span></div>
   <div class="m-body">
-    <span class="kicker mono">▶ Camera Moves &amp; FPV</span>
+    <span class="kicker">Camera Moves &amp; FPV</span>
     <h3 class="glitch">CINEMATOGRAPHY</h3>
     <p class="zh-title">AI 运镜 &amp; 穿越机视觉</p>
     <p class="tag-line">几张静图，生成电影级运镜与穿越机一镜到底。</p>
     <ul class="caps"><li><span class="dot"></span><div><strong>穿越机</strong><span>几张航拍图生成一镜到底穿越机</span></div></li><li><span class="dot"></span><div><strong>影视级运镜</strong><span>6 大专业运镜 · 柯克变焦 / 环绕</span></div></li><li><span class="dot"></span><div><strong>建筑生长</strong><span>建筑生长动画 · 场景穿越</span></div></li><li><span class="dot"></span><div><strong>全程可控</strong><span>速度 · 路径 · 焦点全程可控</span></div></li></ul>
-    <p class="metric mono">代表作 · 穿越机工作流 ❤6.3k · 1.1k 评论</p>
+    <p class="metric mono">代表作 — 穿越机一镜到底</p>
   </div></section>
 <section class="module flip" id="mod-HYB" style="--a:var(--cyan)">
   <div class="m-img"><img src="assets/poster/v49.jpg" alt="HYBRID PRODUCTION" loading="lazy"><span class="tag mono">CH.04 · REEL</span></div>
   <div class="m-body">
-    <span class="kicker mono">▶ AI + Live-action</span>
+    <span class="kicker">AI + Live-action</span>
     <h3 class="glitch">HYBRID PRODUCTION</h3>
     <p class="zh-title">AI + 实拍混合制片</p>
     <p class="tag-line">实拍打底 + AI 补全，成本砍半，效率翻倍。</p>
     <ul class="caps"><li><span class="dot"></span><div><strong>实拍 + AI</strong><span>实拍与 AI 互补 · 商业级落地</span></div></li><li><span class="dot"></span><div><strong>降本提效</strong><span>成本砍半 · 3 小时出宣传片</span></div></li><li><span class="dot"></span><div><strong>真实案例</strong><span>影视城 · 咖啡馆 · 甜品 · 茶饮</span></div></li><li><span class="dot"></span><div><strong>轻量交付</strong><span>无需庞大后期团队即可成片</span></div></li></ul>
-    <p class="metric mono">代表作 · 乐陵影视城宣传片 ❤3.9k</p>
+    <p class="metric mono">代表作 — 影视城宣传片</p>
   </div></section>
 <section class="module " id="mod-DRA" style="--a:var(--magenta)">
   <div class="m-img"><img src="assets/poster/v09.jpg" alt="DIGITAL HUMANS" loading="lazy"><span class="tag mono">CH.05 · REEL</span></div>
   <div class="m-body">
-    <span class="kicker mono">▶ Characters &amp; Drama</span>
+    <span class="kicker">Characters &amp; Drama</span>
     <h3 class="glitch">DIGITAL HUMANS</h3>
     <p class="zh-title">AI 数字人 · 角色 · 短剧</p>
     <p class="tag-line">稳定角色一致性，全链路短剧 / 漫剧自动化，告别抽卡。</p>
     <ul class="caps"><li><span class="dot"></span><div><strong>跨镜一致</strong><span>角色 · 场景跨镜锁定 · 不穿帮</span></div></li><li><span class="dot"></span><div><strong>短剧自动化</strong><span>全链路漫剧 / 短剧自动生产</span></div></li><li><span class="dot"></span><div><strong>质感提升</strong><span>古风真实感 · 消除人机味</span></div></li><li><span class="dot"></span><div><strong>复杂动作</strong><span>16 步分解图生成严谨打戏</span></div></li></ul>
-    <p class="metric mono">代表作 · 场景一致性 ❤298 · 古风质感测试</p>
+    <p class="metric mono">代表作 — 场景一致性 · 古风质感</p>
   </div></section>
 <section class="module flip" id="mod-AUD" style="--a:var(--green)">
   <div class="m-img"><img src="assets/poster/v38.jpg" alt="AUDIO ENGINEERING" loading="lazy"><span class="tag mono">CH.06 · REEL</span></div>
   <div class="m-body">
-    <span class="kicker mono">▶ Voice, Score &amp; Rights</span>
+    <span class="kicker">Voice, Score &amp; Rights</span>
     <h3 class="glitch">AUDIO ENGINEERING</h3>
     <p class="zh-title">AI 声音工程 &amp; 版权安全</p>
     <p class="tag-line">AI 配音配乐 + 零版权风险，交付电影级声音。</p>
     <ul class="caps"><li><span class="dot"></span><div><strong>多语配音</strong><span>ElevenLabs 隐藏功能 · 多语配音</span></div></li><li><span class="dot"></span><div><strong>电影配乐</strong><span>电影感配乐工作流</span></div></li><li><span class="dot"></span><div><strong>版权安全</strong><span>零版权风险 BGM</span></div></li><li><span class="dot"></span><div><strong>侵权规避</strong><span>相似音乐侵权规避 · 告别律师函</span></div></li></ul>
-    <p class="metric mono">代表作 · 电影感配乐 ❤3.1k</p>
+    <p class="metric mono">代表作 — 电影感配乐</p>
   </div></section></div>
 
 <div class="ornament" aria-hidden="true"><span></span></div>
 
 <section class="sec showcase" id="showcase">
-  <div class="sec-head"><span class="kicker mono">▶ SIGNAL SHOWCASE</span><h2 class="glitch big2">能力演示样片</h2><p class="mono dim">12 REELS · 点击任意画面播放 · CLICK ANY FRAME TO PLAY</p></div>
+  <div class="sec-head"><span class="kicker">精选样片 · Selected Work</span><h2 class="glitch big2">能力演示样片</h2><p class="dim">12 部样片 · 点击任意画面即可播放</p></div>
   <div class="reel-grid"><figure class="reel" data-src="assets/video/v26.mp4" style="--a:var(--red)">
   <div class="frame">
     <img src="assets/poster/v26.jpg" alt="FACTORY FOOTAGE REBORN" loading="lazy">
@@ -535,7 +497,7 @@ a.cc:hover,a.cc:focus-visible{transform:translateY(-4px);border-color:var(--gold
 <div class="mini" style="--a:var(--red)"><span class="big">②</span><span class="mono en">AI GENERATION</span><h4>AI 视频生成</h4><p>有效镜头数 × 复杂度梯度</p></div>
 <div class="mini" style="--a:var(--green)"><span class="big">③</span><span class="mono en">POST · GRADE · AUDIO</span><h4>后期 · 调色 · 声音</h4><p>跳帧/色调修复 + 配乐 + 字幕</p></div>
 <div class="mini" style="--a:var(--magenta)"><span class="big">④</span><span class="mono en">COMPUTE &amp; RISK</span><h4>算力 · 风险</h4><p>API/GPU + 失败迭代 + 风险溢价</p></div></div>
-  <p class="formula mono">▶ 报价 = 工时 × 时薪 + 算力 × 价值系数 + 风险溢价 · 项目制 · 详询</p>
+  <p class="formula">报价 = 工时 × 时薪 + 算力 × 价值系数 + 风险溢价 · 项目制 · 详询</p>
 </section>
 
 <section class="sec alt" id="catalog">
@@ -584,8 +546,8 @@ a.cc:hover,a.cc:focus-visible{transform:translateY(-4px);border-color:var(--gold
 
 <section class="sec alt" id="index">
   <div class="sec-head"><h2 class="glitch">Full signal index.</h2><p class="mono dim">全部 49 条作品索引</p></div>
-  <details class="idx"><summary class="mono">▶ 展开 49 条作品索引 / EXPAND FULL INDEX</summary>
-  <div class="table-wrap"><table class="idx-tbl"><thead><tr><th>#</th><th>SIGNAL</th><th>标题 TITLE</th><th>模块</th><th>❤</th></tr></thead>
+  <details class="idx"><summary>展开全部 49 部作品索引</summary>
+  <div class="table-wrap"><table class="idx-tbl"><thead><tr><th>#</th><th>编号</th><th>标题 TITLE</th><th>模块</th><th>热度</th></tr></thead>
   <tbody><tr><td class="mono">01</td><td class="mono sig">V01</td><td>不降画质！不露馅！商业TVC景观AI重绘保姆级教程</td><td class="mono dim">AI重绘·空间重构</td><td class="mono eta">428</td></tr>
 <tr><td class="mono">02</td><td class="mono sig">V02</td><td>一张随手拍教你制作商业质感的后厨大片！</td><td class="mono dim">AI商业TVC</td><td class="mono eta">31</td></tr>
 <tr><td class="mono">03</td><td class="mono sig">V03</td><td>一招搞定AI角色的人机味儿</td><td class="mono dim">数字人·角色·短剧</td><td class="mono eta">83</td></tr>
@@ -635,6 +597,7 @@ a.cc:hover,a.cc:focus-visible{transform:translateY(-4px);border-color:var(--gold
 <tr><td class="mono">47</td><td class="mono sig">V47</td><td>案例拆解：咖啡馆宣传片AI+实拍落地实战！</td><td class="mono dim">AI+实拍混合</td><td class="mono eta">514</td></tr>
 <tr><td class="mono">48</td><td class="mono sig">V48</td><td>AI+实拍 乐陵影视城宣传片</td><td class="mono dim">AI+实拍混合</td><td class="mono eta">39</td></tr>
 <tr><td class="mono">49</td><td class="mono sig">V49</td><td>案例拆解：乐陵影视城宣传片AI+实拍落地实战！</td><td class="mono dim">AI+实拍混合</td><td class="mono eta">3853</td></tr></tbody></table></div></details>
+  <!-- idx -->
 </section>
 
 <div class="ornament" aria-hidden="true"><span></span></div>
