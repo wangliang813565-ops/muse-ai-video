@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MUSE · AI 视频制作能力 / AI Video Production Capabilities</title>
+<meta name="description" content="MUSE AI 视频制作能力与产品目录 — 商业 TVC、工业重绘、穿越机航拍、AI+实拍、数字人短剧、AI 配音。Dubai-based AI video studio.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="assets/img/muse_logo.png">
+<style>/* ===== MUSE AI Video — chromatic-rgb microsite ===== */
+:root{
+  --bg:#0A0A14; --panel:#14141E; --panel2:#1B1B28; --line:#2C2C3A;
+  --white:#fff; --soft:#C8C8D6; --muted:#8A8A9C;
+  --red:#FF2A55; --cyan:#24E0FF; --green:#32FF9A; --magenta:#FF3DC0; --gold:#FFC84A;
+  --disp:'Space Grotesk',sans-serif; --mono:'JetBrains Mono',monospace; --body:'Inter',sans-serif;
+  --max:1180px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:78px}
+body{background:var(--bg);color:var(--white);font-family:var(--body);line-height:1.6;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.mono{font-family:var(--mono)}
+.dim{color:var(--muted)}
+h1,h2,h3,h4{font-family:var(--disp);font-weight:700;letter-spacing:-.02em;line-height:1.0}
+.glitch{text-shadow:-2px 0 var(--red),2px 0 var(--cyan)}
+.kicker{color:var(--cyan);font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;font-weight:700}
+
+/* scanline overlay */
+.scan{position:fixed;inset:0;pointer-events:none;z-index:80;opacity:.5;
+  background:repeating-linear-gradient(0deg,rgba(255,255,255,.045) 0 1px,transparent 1px 3px)}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:90;display:flex;align-items:center;justify-content:space-between;
+  gap:1rem;padding:.7rem clamp(1rem,4vw,2.4rem);background:rgba(10,10,20,.82);
+  backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:.6rem}
+.brand img{width:34px;height:auto}
+.brand span{font-family:var(--disp);font-weight:700;font-size:1.05rem;line-height:1;display:flex;flex-direction:column}
+.brand small{font-size:.5rem;letter-spacing:.24em;color:var(--muted);font-weight:400;margin-top:2px}
+.nav .links{display:flex;gap:1.4rem;font-size:.72rem;letter-spacing:.12em}
+.nav .links a{color:var(--soft);transition:color .2s}
+.nav .links a:hover,.nav .links a:focus-visible{color:var(--cyan)}
+.rec{font-size:.62rem;letter-spacing:.2em;color:var(--red);display:flex;align-items:center;gap:.4rem}
+.rec::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--red);
+  box-shadow:0 0 8px var(--red);animation:blink 1.6s infinite}
+@keyframes blink{50%{opacity:.3}}
+
+/* hero */
+.hero{position:relative;padding:clamp(2.5rem,7vw,5rem) clamp(1rem,4vw,2.4rem) clamp(2rem,5vw,3.5rem);
+  overflow:hidden;border-bottom:1px solid var(--line)}
+.hero-in{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:1.15fr .85fr;
+  gap:clamp(1.5rem,4vw,3rem);align-items:center}
+.hero-text .kicker{display:block;margin-bottom:1rem}
+.hero h1.big{font-size:clamp(3rem,9vw,6.4rem);line-height:.88;margin-bottom:1.2rem}
+.lead{font-size:clamp(1rem,2.2vw,1.35rem);font-weight:600;color:var(--white)}
+.lead-en{font-size:.72rem;letter-spacing:.2em;color:var(--muted);margin-top:.4rem}
+.hero-stats{display:flex;gap:clamp(1.2rem,4vw,2.4rem);margin:1.8rem 0}
+.hero-stats div{display:flex;flex-direction:column}
+.hero-stats b{font-family:var(--disp);font-size:clamp(1.6rem,4vw,2.4rem);line-height:1;
+  text-shadow:-1.5px 0 var(--red),1.5px 0 var(--cyan)}
+.hero-stats span{font-size:.6rem;letter-spacing:.18em;color:var(--muted);margin-top:.3rem}
+.cta{display:flex;gap:.8rem;flex-wrap:wrap}
+.btn{font-family:var(--mono);font-size:.78rem;letter-spacing:.08em;padding:.7rem 1.3rem;
+  border:1px solid var(--cyan);color:var(--cyan);transition:.2s;cursor:pointer}
+.btn:hover,.btn:focus-visible{background:var(--cyan);color:var(--bg)}
+.btn.ghost{border-color:var(--line);color:var(--soft)}
+.btn.ghost:hover{border-color:var(--white);background:transparent;color:var(--white)}
+.hero-media{position:relative}
+.hero-media img{width:100%;aspect-ratio:16/10;object-fit:cover;border:1px solid var(--line);
+  position:relative;z-index:2}
+.hero-media::before{content:"";position:absolute;inset:-6px 0 6px -6px;border:1px solid var(--red);z-index:1}
+.hero-media::after{content:"";position:absolute;inset:6px -6px -6px 6px;border:1px solid var(--cyan);z-index:1}
+.hero-media .tag{position:absolute;top:-1.4rem;left:0;font-size:.62rem;letter-spacing:.18em;color:var(--cyan);z-index:3}
+.hero-bars{position:absolute;inset:0;pointer-events:none}
+.hero-bars i{position:absolute;left:0;right:0;height:4px;mix-blend-mode:screen;opacity:.55}
+.hero-bars i:nth-child(1){top:24%;background:var(--cyan);transform:translateX(20px)}
+.hero-bars i:nth-child(2){top:58%;height:2px;background:var(--red);transform:translateX(-30px)}
+.hero-bars i:nth-child(3){top:82%;height:3px;background:var(--green);transform:translateX(40px);opacity:.4}
+
+/* band */
+.band{max-width:var(--max);margin:0 auto;padding:clamp(2rem,5vw,3.2rem) clamp(1rem,4vw,2.4rem);text-align:center}
+.band-lead{font-size:clamp(1.1rem,2.6vw,1.5rem);font-weight:600;max-width:880px;margin:0 auto;line-height:1.5}
+.band-en{font-size:.78rem;letter-spacing:.14em;color:var(--muted);margin-top:.8rem}
+
+/* sections */
+.sec{max-width:var(--max);margin:0 auto;padding:clamp(2.5rem,6vw,4.5rem) clamp(1rem,4vw,2.4rem)}
+.sec.alt{max-width:none;background:linear-gradient(180deg,#0d0d18,#0a0a14);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.sec.alt>*{max-width:var(--max);margin-left:auto;margin-right:auto}
+.sec-head{margin-bottom:2.2rem}
+.sec-head h2{font-size:clamp(1.8rem,4.4vw,3rem);margin:.3rem 0 .5rem}
+.sec-head .big2{font-size:clamp(2.2rem,6vw,4rem)}
+.sec-head p{color:var(--soft);max-width:760px;font-size:.95rem}
+.sec-head .kicker{display:block;margin-bottom:.4rem}
+
+/* channel grid */
+.ch-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem}
+.ch-card{background:var(--panel);border:1px solid var(--line);overflow:hidden;cursor:pointer;
+  transition:transform .2s,border-color .2s;border-top:3px solid var(--a)}
+.ch-card:hover,.ch-card:focus-visible{transform:translateY(-4px);border-color:var(--a)}
+.ch-pic{aspect-ratio:16/9;overflow:hidden}
+.ch-pic img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.ch-card:hover .ch-pic img{transform:scale(1.05)}
+.ch-meta{padding:1rem 1.1rem 1.2rem}
+.ch-meta .code{font-size:.66rem;letter-spacing:.18em;color:var(--a)}
+.ch-meta h3{font-size:1.15rem;margin:.4rem 0 .3rem}
+.ch-meta .zh{color:var(--soft);font-size:.92rem}
+.ch-meta .dim{display:block;margin-top:.7rem;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase}
+
+/* mini grid */
+.mini-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.mini{background:var(--panel);border:1px solid var(--line);border-top:3px solid var(--a);padding:1.3rem 1.2rem}
+.mini .big{font-family:var(--disp);font-size:2rem;text-shadow:-1.5px 0 var(--red),1.5px 0 var(--cyan);display:block}
+.mini .en{display:block;font-size:.62rem;letter-spacing:.16em;color:var(--a);margin:.5rem 0 .3rem;text-transform:uppercase}
+.mini h4{font-size:1.05rem;margin-bottom:.4rem}
+.mini p{font-size:.85rem;color:var(--muted);line-height:1.45}
+.formula{margin-top:1.4rem;color:var(--white);font-size:.85rem;letter-spacing:.04em;
+  border-left:3px solid var(--green);padding-left:.9rem}
+
+/* modules */
+.modules{max-width:var(--max);margin:0 auto;padding:0 clamp(1rem,4vw,2.4rem)}
+.module{display:grid;grid-template-columns:.85fr 1fr;gap:clamp(1.4rem,3.5vw,2.6rem);
+  align-items:center;padding:clamp(1.8rem,4vw,2.8rem) 0;border-bottom:1px solid var(--line)}
+.module.flip .m-img{order:2}
+.m-img{position:relative}
+.m-img img{width:100%;aspect-ratio:16/9;object-fit:cover;border:1px solid var(--line);border-bottom:3px solid var(--a)}
+.m-img .tag{position:absolute;top:.6rem;left:.6rem;font-size:.6rem;letter-spacing:.14em;color:var(--a);
+  background:rgba(10,10,20,.75);padding:.25rem .5rem;border:1px solid var(--a)}
+.m-body .kicker{color:var(--a);display:block;margin-bottom:.5rem}
+.m-body h3{font-size:clamp(1.6rem,3.4vw,2.3rem);margin-bottom:.4rem}
+.zh-title{font-size:1.15rem;font-weight:600;margin-bottom:.5rem}
+.tag-line{color:var(--soft);font-size:.92rem;margin-bottom:1.1rem}
+.caps{list-style:none;display:flex;flex-direction:column;gap:.7rem}
+.caps li{display:flex;gap:.7rem;align-items:flex-start}
+.caps .dot{width:9px;height:9px;background:var(--a);margin-top:7px;flex:none}
+.caps strong{display:block;font-size:.98rem}
+.caps span{display:block;font-size:.82rem;color:var(--muted)}
+.metric{margin-top:1.1rem;color:var(--a);font-size:.8rem;border-top:1px solid var(--line);padding-top:.7rem}
+
+/* showcase */
+.showcase .sec-head{text-align:center}
+.showcase .sec-head p{margin:0 auto}
+.reel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.reel{background:var(--panel);border:1px solid var(--line);overflow:hidden;display:flex;flex-direction:column}
+.reel .frame{position:relative;aspect-ratio:16/9;background:#000;overflow:hidden;border-bottom:3px solid var(--a)}
+.reel .frame img{width:100%;height:100%;object-fit:cover}
+.reel .frame video{width:100%;height:100%;object-fit:contain;background:#000}
+.reel .play{position:absolute;inset:0;margin:auto;width:62px;height:62px;border-radius:50%;
+  border:2px solid #fff;background:rgba(10,10,20,.35);color:#fff;display:flex;align-items:center;
+  justify-content:center;cursor:pointer;transition:.2s;backdrop-filter:blur(2px)}
+.reel .play:hover,.reel .play:focus-visible{background:var(--a);border-color:var(--a);color:var(--bg)}
+.reel .sig{position:absolute;top:.5rem;left:.5rem;font-size:.58rem;letter-spacing:.12em;color:var(--cyan);
+  background:rgba(10,10,20,.7);padding:.2rem .45rem}
+.reel figcaption{padding:1rem 1.1rem 1.2rem;display:flex;flex-direction:column;gap:.35rem;flex:1}
+.reel .chip{align-self:flex-start;font-size:.6rem;letter-spacing:.1em;color:var(--a);
+  border:1px solid var(--a);padding:.2rem .5rem;margin-bottom:.2rem}
+.reel h4{font-size:1.02rem;text-shadow:-1px 0 var(--red),1px 0 var(--cyan)}
+.reel .zh{font-size:.9rem;font-weight:600}
+.reel .desc{font-size:.8rem;color:var(--muted);line-height:1.4}
+.reel .metric{margin-top:auto;border-top:1px solid var(--line);padding-top:.6rem;color:var(--a);font-size:.78rem}
+
+/* tables */
+.table-wrap{overflow-x:auto;border:1px solid var(--line)}
+table{width:100%;border-collapse:collapse;min-width:680px}
+.sku thead th,.idx-tbl thead th{background:var(--panel2);color:var(--cyan);font-family:var(--mono);
+  font-size:.66rem;letter-spacing:.1em;text-align:left;padding:.7rem .8rem;border-bottom:2px solid var(--cyan);font-weight:700}
+.sku td{padding:.65rem .8rem;border-bottom:1px solid var(--line);font-size:.9rem;vertical-align:middle}
+.sku tbody tr:nth-child(odd){background:rgba(255,255,255,.02)}
+.sku .code{color:var(--red);font-weight:700;font-size:.8rem}
+.sku .scn strong{display:block}
+.sku .scn span{font-size:.66rem;color:var(--muted)}
+.sku td:nth-child(3),.sku td:nth-child(4){color:var(--soft)}
+.sku .eta{color:var(--green);font-weight:700;white-space:nowrap}
+.idx{margin-top:.5rem}
+.idx summary{cursor:pointer;color:var(--cyan);font-size:.78rem;letter-spacing:.1em;padding:.7rem 0}
+.idx-tbl td{padding:.4rem .7rem;border-bottom:1px solid var(--line);font-size:.78rem}
+.idx-tbl .sig{color:var(--red);font-weight:700}
+.idx-tbl .eta{color:var(--green);text-align:right}
+.idx-tbl tbody tr:nth-child(odd){background:rgba(255,255,255,.02)}
+
+/* contact */
+.contact{position:relative;text-align:center;padding:clamp(3rem,8vw,5.5rem) clamp(1rem,4vw,2.4rem);
+  border-top:1px solid var(--line);overflow:hidden}
+.contact h2{font-size:clamp(2.6rem,9vw,5.5rem);margin-bottom:.6rem}
+.contact .dim{letter-spacing:.24em;font-size:.72rem}
+.contact-grid{max-width:920px;margin:2.2rem auto 1.4rem;display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.cc{background:var(--panel);border:1px solid var(--line);border-top:3px solid var(--a);padding:1.1rem;
+  display:flex;flex-direction:column;gap:.4rem;transition:.2s}
+a.cc:hover,a.cc:focus-visible{transform:translateY(-3px);border-color:var(--a)}
+.cc .mono{font-size:.6rem;letter-spacing:.16em;color:var(--muted)}
+.cc b{font-family:var(--disp);font-size:1rem;word-break:break-word}
+.foot{color:var(--muted);font-size:.66rem;letter-spacing:.1em;margin-top:1rem}
+
+/* responsive */
+@media(max-width:900px){
+  .hero-in{grid-template-columns:1fr}
+  .hero-media{order:-1;max-width:480px}
+  .ch-grid,.mini-grid{grid-template-columns:repeat(2,1fr)}
+  .reel-grid{grid-template-columns:repeat(2,1fr)}
+  .contact-grid{grid-template-columns:repeat(2,1fr)}
+  .module,.module.flip .m-img{grid-template-columns:1fr;order:0}
+  .module .m-img{order:0!important;margin-bottom:1.2rem}
+}
+@media(max-width:560px){
+  .nav .links{display:none}
+  .ch-grid,.mini-grid,.reel-grid,.contact-grid{grid-template-columns:1fr}
+  .hero-stats{gap:1.2rem}
+}
+@media (prefers-reduced-motion: reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .ch-card:hover .ch-pic img{transform:none}
+}
+</style>
+</head>
+<body>
+<div class="scan" aria-hidden="true"></div>
+
+<nav class="nav">
+  <a class="brand" href="#top"><img src="assets/img/muse_logo.png" alt="MUSE"><span>MUSE<small class="mono">AI VIDEO STUDIO</small></span></a>
+  <div class="links mono">
+    <a href="#channels">能力 CHANNELS</a><a href="#showcase">样片 SHOWCASE</a>
+    <a href="#catalog">产品 CATALOG</a><a href="#contact">联系 CONTACT</a>
+  </div>
+  <span class="rec mono">● REC</span>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-bars" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div class="hero-in">
+    <div class="hero-text">
+      <span class="kicker mono">▶ CH.00 / SIGNAL.SPLIT / 2026</span>
+      <h1 class="glitch big">AI VIDEO<br>STUDIO.</h1>
+      <p class="lead">AI 视频制作能力 · 产品目录</p>
+      <p class="lead-en mono">AI VIDEO PRODUCTION CAPABILITIES · PRODUCT CATALOG</p>
+      <div class="hero-stats">
+        <div><b>49</b><span class="mono">SIGNAL REELS</span></div>
+        <div><b>07</b><span class="mono">CHANNELS</span></div>
+        <div><b>78m</b><span class="mono">ON RECORD</span></div>
+      </div>
+      <div class="cta"><a class="btn" href="#showcase">查看演示样片 ▶</a><a class="btn ghost" href="#contact">联系我们</a></div>
+    </div>
+    <div class="hero-media"><img src="assets/img/hero.jpg" alt="MUSE showreel" loading="eager"><span class="mono tag">▶ SHOWREEL · SIGNAL 01</span></div>
+  </div>
+</header>
+
+<section class="band" id="about">
+  <p class="band-lead">MUSE 以工程化的 AI 工作流，把品牌的一次创意，变成可批量、可控、工业级交付的视频信号。</p>
+  <p class="band-en mono">From a single brief to broadcast-grade reels — produced as a stable signal, not a lucky draw.</p>
+</section>
+
+<section class="sec" id="channels">
+  <div class="sec-head"><h2 class="glitch">Six channels.</h2><p class="mono dim">六大核心能力频道 · 一个智能制片中台</p></div>
+  <div class="ch-grid"><a class="ch-card" href="#mod-TVC" style="--a:var(--cyan)">
+  <div class="ch-pic"><img src="assets/poster/v32.jpg" alt="COMMERCIAL TVC" loading="lazy"></div>
+  <div class="ch-meta"><span class="mono code">CH.01</span>
+    <h3>COMMERCIAL TVC</h3><p class="zh">AI 商业 TVC · 全流程制作</p>
+    <span class="mono dim">▶ End-to-End Production</span></div></a>
+<a class="ch-card" href="#mod-RPT" style="--a:var(--red)">
+  <div class="ch-pic"><img src="assets/poster/v26.jpg" alt="REPAINT &amp; SPACE" loading="lazy"></div>
+  <div class="ch-meta"><span class="mono code">CH.02</span>
+    <h3>REPAINT &amp; SPACE</h3><p class="zh">AI 工业级重绘 &amp; 空间重构</p>
+    <span class="mono dim">▶ Industrial Reconstruction</span></div></a>
+<a class="ch-card" href="#mod-FPV" style="--a:var(--green)">
+  <div class="ch-pic"><img src="assets/poster/v40.jpg" alt="CINEMATOGRAPHY" loading="lazy"></div>
+  <div class="ch-meta"><span class="mono code">CH.03</span>
+    <h3>CINEMATOGRAPHY</h3><p class="zh">AI 运镜 &amp; 穿越机视觉</p>
+    <span class="mono dim">▶ Camera Moves &amp; FPV</span></div></a>
+<a class="ch-card" href="#mod-HYB" style="--a:var(--cyan)">
+  <div class="ch-pic"><img src="assets/poster/v49.jpg" alt="HYBRID PRODUCTION" loading="lazy"></div>
+  <div class="ch-meta"><span class="mono code">CH.04</span>
+    <h3>HYBRID PRODUCTION</h3><p class="zh">AI + 实拍混合制片</p>
+    <span class="mono dim">▶ AI + Live-action</span></div></a>
+<a class="ch-card" href="#mod-DRA" style="--a:var(--magenta)">
+  <div class="ch-pic"><img src="assets/poster/v09.jpg" alt="DIGITAL HUMANS" loading="lazy"></div>
+  <div class="ch-meta"><span class="mono code">CH.05</span>
+    <h3>DIGITAL HUMANS</h3><p class="zh">AI 数字人 · 角色 · 短剧</p>
+    <span class="mono dim">▶ Characters &amp; Drama</span></div></a>
+<a class="ch-card" href="#mod-AUD" style="--a:var(--green)">
+  <div class="ch-pic"><img src="assets/poster/v38.jpg" alt="AUDIO ENGINEERING" loading="lazy"></div>
+  <div class="ch-meta"><span class="mono code">CH.06</span>
+    <h3>AUDIO ENGINEERING</h3><p class="zh">AI 声音工程 &amp; 版权安全</p>
+    <span class="mono dim">▶ Voice, Score &amp; Rights</span></div></a></div>
+</section>
+
+<section class="sec alt" id="method">
+  <div class="sec-head"><h2 class="glitch">Not gacha. Engineering.</h2><p class="dim">不靠抽卡碰运气 —— 分镜法则 + 智能体 + 一致性锁定，把不确定的生成变成可交付的工业流程。</p></div>
+  <div class="mini-grid"><div class="mini" style="--a:var(--cyan)"><span class="big">01</span><span class="mono en">GOLDEN 9-GRID</span><h4>黄金 9 宫格交付法则</h4><p>商业交付的镜头结构法则</p></div>
+<div class="mini" style="--a:var(--red)"><span class="big">02</span><span class="mono en">SMART STORYBOARD</span><h4>懂预算懂空间的智能分镜</h4><p>按预算与空间出专业分镜</p></div>
+<div class="mini" style="--a:var(--green)"><span class="big">03</span><span class="mono en">SCRIPT &amp; REVERSE AGENTS</span><h4>策划独白 / 反推智能体</h4><p>策划独白 + 图片反推提示词</p></div>
+<div class="mini" style="--a:var(--magenta)"><span class="big">04</span><span class="mono en">CONSISTENCY LOCK</span><h4>跨镜一致性锁定</h4><p>角色 · 场景 · 风格跨镜稳定</p></div></div>
+</section>
+
+<div class="modules"><section class="module " id="mod-TVC" style="--a:var(--cyan)">
+  <div class="m-img"><img src="assets/poster/v32.jpg" alt="COMMERCIAL TVC" loading="lazy"><span class="tag mono">CH.01 · REEL</span></div>
+  <div class="m-body">
+    <span class="kicker mono">▶ End-to-End Production</span>
+    <h3 class="glitch">COMMERCIAL TVC</h3>
+    <p class="zh-title">AI 商业 TVC · 全流程制作</p>
+    <p class="tag-line">从剧本分镜到成片调色，全链路 AI 生产商业广告片。</p>
+    <ul class="caps"><li><span class="dot"></span><div><strong>全流程</strong><span>剧本 → 分镜 → 生图 → 生视频 → 调色</span></div></li><li><span class="dot"></span><div><strong>1 小时出片</strong><span>从脚本到样片，最快一小时一条 TVC</span></div></li><li><span class="dot"></span><div><strong>跨镜一致性</strong><span>产品 · 角色 · 场景跨镜锁定</span></div></li><li><span class="dot"></span><div><strong>多版交付</strong><span>横竖双版 + 多语字幕 · 1080p / 4K</span></div></li></ul>
+    <p class="metric mono">代表作 · 换天 TVC ❤5.1k · 最稳定商业片工作流 ❤1.2k</p>
+  </div></section>
+<section class="module flip" id="mod-RPT" style="--a:var(--red)">
+  <div class="m-img"><img src="assets/poster/v26.jpg" alt="REPAINT &amp; SPACE" loading="lazy"><span class="tag mono">CH.02 · REEL</span></div>
+  <div class="m-body">
+    <span class="kicker mono">▶ Industrial Reconstruction</span>
+    <h3 class="glitch">REPAINT &amp; SPACE</h3>
+    <p class="zh-title">AI 工业级重绘 &amp; 空间重构</p>
+    <p class="tag-line">把粗糙实拍、老素材一键重绘为工业级画面。</p>
+    <ul class="caps"><li><span class="dot"></span><div><strong>工业重绘</strong><span>工厂实拍变废为宝 · 老片翻新修复</span></div></li><li><span class="dot"></span><div><strong>TVC 级换天</strong><span>一套智能体换天，告别抠图追踪</span></div></li><li><span class="dot"></span><div><strong>空间重构</strong><span>先建稳定空间结构，再生成画面</span></div></li><li><span class="dot"></span><div><strong>降本替代</strong><span>替代重度 AE / C4D 后期依赖</span></div></li></ul>
+    <p class="metric mono">代表作 · 变废为宝 ❤7.4k · 换天黑科技 ❤5.1k</p>
+  </div></section>
+<section class="module " id="mod-FPV" style="--a:var(--green)">
+  <div class="m-img"><img src="assets/poster/v40.jpg" alt="CINEMATOGRAPHY" loading="lazy"><span class="tag mono">CH.03 · REEL</span></div>
+  <div class="m-body">
+    <span class="kicker mono">▶ Camera Moves &amp; FPV</span>
+    <h3 class="glitch">CINEMATOGRAPHY</h3>
+    <p class="zh-title">AI 运镜 &amp; 穿越机视觉</p>
+    <p class="tag-line">几张静图，生成电影级运镜与穿越机一镜到底。</p>
+    <ul class="caps"><li><span class="dot"></span><div><strong>穿越机</strong><span>几张航拍图生成一镜到底穿越机</span></div></li><li><span class="dot"></span><div><strong>影视级运镜</strong><span>6 大专业运镜 · 柯克变焦 / 环绕</span></div></li><li><span class="dot"></span><div><strong>建筑生长</strong><span>建筑生长动画 · 场景穿越</span></div></li><li><span class="dot"></span><div><strong>全程可控</strong><span>速度 · 路径 · 焦点全程可控</span></div></li></ul>
+    <p class="metric mono">代表作 · 穿越机工作流 ❤6.3k · 1.1k 评论</p>
+  </div></section>
+<section class="module flip" id="mod-HYB" style="--a:var(--cyan)">
+  <div class="m-img"><img src="assets/poster/v49.jpg" alt="HYBRID PRODUCTION" loading="lazy"><span class="tag mono">CH.04 · REEL</span></div>
+  <div class="m-body">
+    <span class="kicker mono">▶ AI + Live-action</span>
+    <h3 class="glitch">HYBRID PRODUCTION</h3>
+    <p class="zh-title">AI + 实拍混合制片</p>
+    <p class="tag-line">实拍打底 + AI 补全，成本砍半，效率翻倍。</p>
+    <ul class="caps"><li><span class="dot"></span><div><strong>实拍 + AI</strong><span>实拍与 AI 互补 · 商业级落地</span></div></li><li><span class="dot"></span><div><strong>降本提效</strong><span>成本砍半 · 3 小时出宣传片</span></div></li><li><span class="dot"></span><div><strong>真实案例</strong><span>影视城 · 咖啡馆 · 甜品 · 茶饮</span></div></li><li><span class="dot"></span><div><strong>轻量交付</strong><span>无需庞大后期团队即可成片</span></div></li></ul>
+    <p class="metric mono">代表作 · 乐陵影视城宣传片 ❤3.9k</p>
+  </div></section>
+<section class="module " id="mod-DRA" style="--a:var(--magenta)">
+  <div class="m-img"><img src="assets/poster/v09.jpg" alt="DIGITAL HUMANS" loading="lazy"><span class="tag mono">CH.05 · REEL</span></div>
+  <div class="m-body">
+    <span class="kicker mono">▶ Characters &amp; Drama</span>
+    <h3 class="glitch">DIGITAL HUMANS</h3>
+    <p class="zh-title">AI 数字人 · 角色 · 短剧</p>
+    <p class="tag-line">稳定角色一致性，全链路短剧 / 漫剧自动化，告别抽卡。</p>
+    <ul class="caps"><li><span class="dot"></span><div><strong>跨镜一致</strong><span>角色 · 场景跨镜锁定 · 不穿帮</span></div></li><li><span class="dot"></span><div><strong>短剧自动化</strong><span>全链路漫剧 / 短剧自动生产</span></div></li><li><span class="dot"></span><div><strong>质感提升</strong><span>古风真实感 · 消除人机味</span></div></li><li><span class="dot"></span><div><strong>复杂动作</strong><span>16 步分解图生成严谨打戏</span></div></li></ul>
+    <p class="metric mono">代表作 · 场景一致性 ❤298 · 古风质感测试</p>
+  </div></section>
+<section class="module flip" id="mod-AUD" style="--a:var(--green)">
+  <div class="m-img"><img src="assets/poster/v38.jpg" alt="AUDIO ENGINEERING" loading="lazy"><span class="tag mono">CH.06 · REEL</span></div>
+  <div class="m-body">
+    <span class="kicker mono">▶ Voice, Score &amp; Rights</span>
+    <h3 class="glitch">AUDIO ENGINEERING</h3>
+    <p class="zh-title">AI 声音工程 &amp; 版权安全</p>
+    <p class="tag-line">AI 配音配乐 + 零版权风险，交付电影级声音。</p>
+    <ul class="caps"><li><span class="dot"></span><div><strong>多语配音</strong><span>ElevenLabs 隐藏功能 · 多语配音</span></div></li><li><span class="dot"></span><div><strong>电影配乐</strong><span>电影感配乐工作流</span></div></li><li><span class="dot"></span><div><strong>版权安全</strong><span>零版权风险 BGM</span></div></li><li><span class="dot"></span><div><strong>侵权规避</strong><span>相似音乐侵权规避 · 告别律师函</span></div></li></ul>
+    <p class="metric mono">代表作 · 电影感配乐 ❤3.1k</p>
+  </div></section></div>
+
+<section class="sec showcase" id="showcase">
+  <div class="sec-head"><span class="kicker mono">▶ SIGNAL SHOWCASE</span><h2 class="glitch big2">能力演示样片</h2><p class="mono dim">12 REELS · 点击任意画面播放 · CLICK ANY FRAME TO PLAY</p></div>
+  <div class="reel-grid"><figure class="reel" data-src="assets/video/v26.mp4" style="--a:var(--red)">
+  <div class="frame">
+    <img src="assets/poster/v26.jpg" alt="FACTORY FOOTAGE REBORN" loading="lazy">
+    <button class="play" aria-label="播放 FACTORY FOOTAGE REBORN"><svg viewBox="0 0 24 24" width="26" height="26"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button>
+    <span class="sig mono">SIGNAL.01 · V26 · 131s</span>
+  </div>
+  <figcaption>
+    <span class="chip mono">RPT · AI 重绘 · 空间重构</span>
+    <h4>FACTORY FOOTAGE REBORN</h4><p class="zh">工厂实拍变废为宝</p><p class="desc">把粗糙工厂实拍一键重绘为工业级画面。</p>
+    <p class="metric mono">❤ 7395 &nbsp; 💬 138 &nbsp; ↗ 2244</p>
+  </figcaption></figure>
+<figure class="reel" data-src="assets/video/v40.mp4" style="--a:var(--green)">
+  <div class="frame">
+    <img src="assets/poster/v40.jpg" alt="FPV FROM A FEW STILLS" loading="lazy">
+    <button class="play" aria-label="播放 FPV FROM A FEW STILLS"><svg viewBox="0 0 24 24" width="26" height="26"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button>
+    <span class="sig mono">SIGNAL.02 · V40 · 95s</span>
+  </div>
+  <figcaption>
+    <span class="chip mono">FPV · 运镜 · 穿越机</span>
+    <h4>FPV FROM A FEW STILLS</h4><p class="zh">几张航拍图生成穿越机镜头</p><p class="desc">静图生成电影级穿越机一镜到底。</p>
+    <p class="metric mono">❤ 6305 &nbsp; 💬 1102 &nbsp; ↗ 1271</p>
+  </figcaption></figure>
+<figure class="reel" data-src="assets/video/v30.mp4" style="--a:var(--red)">
+  <div class="frame">
+    <img src="assets/poster/v30.jpg" alt="TVC-GRADE SKY REPLACEMENT" loading="lazy">
+    <button class="play" aria-label="播放 TVC-GRADE SKY REPLACEMENT"><svg viewBox="0 0 24 24" width="26" height="26"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button>
+    <span class="sig mono">SIGNAL.03 · V30 · 102s</span>
+  </div>
+  <figcaption>
+    <span class="chip mono">RPT · AI 重绘 · 空间重构</span>
+    <h4>TVC-GRADE SKY REPLACEMENT</h4><p class="zh">TVC 级换天黑科技</p><p class="desc">一套智能体搞定工业化换天交付。</p>
+    <p class="metric mono">❤ 5156 &nbsp; 💬 139 &nbsp; ↗ 1399</p>
+  </figcaption></figure>
+<figure class="reel" data-src="assets/video/v49.mp4" style="--a:var(--cyan)">
+  <div class="frame">
+    <img src="assets/poster/v49.jpg" alt="FILM-CITY PROMO" loading="lazy">
+    <button class="play" aria-label="播放 FILM-CITY PROMO"><svg viewBox="0 0 24 24" width="26" height="26"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button>
+    <span class="sig mono">SIGNAL.04 · V49 · 130s</span>
+  </div>
+  <figcaption>
+    <span class="chip mono">HYB · AI + 实拍混合</span>
+    <h4>FILM-CITY PROMO</h4><p class="zh">影视城宣传片 · AI + 实拍</p><p class="desc">不动用庞大后期团队的影视级成片。</p>
+    <p class="metric mono">❤ 3853 &nbsp; 💬 284 &nbsp; ↗ 808</p>
+  </figcaption></figure>
+<figure class="reel" data-src="assets/video/v38.mp4" style="--a:var(--green)">
+  <div class="frame">
+    <img src="assets/poster/v38.jpg" alt="CINEMATIC AI SCORING" loading="lazy">
+    <button class="play" aria-label="播放 CINEMATIC AI SCORING"><svg viewBox="0 0 24 24" width="26" height="26"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button>
+    <span class="sig mono">SIGNAL.05 · V38 · 86s</span>
+  </div>
+  <figcaption>
+    <span class="chip mono">AUD · 声音 · 版权</span>
+    <h4>CINEMATIC AI SCORING</h4><p class="zh">AI 电影感配乐工作流</p><p class="desc">零版权风险的电影级配乐。</p>
+    <p class="metric mono">❤ 3139 &nbsp; 💬 192 &nbsp; ↗ 584</p>
+  </figcaption></figure>
+<figure class="reel" data-src="assets/video/v42.mp4" style="--a:var(--red)">
+  <div class="frame">
+    <img src="assets/poster/v42.jpg" alt="AERIAL REPAINT PIPELINE" loading="lazy">
+    <button class="play" aria-label="播放 AERIAL REPAINT PIPELINE"><svg viewBox="0 0 24 24" width="26" height="26"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button>
+    <span class="sig mono">SIGNAL.06 · V42 · 113s</span>
+  </div>
+  <figcaption>
+    <span class="chip mono">RPT · AI 重绘 · 空间重构</span>
+    <h4>AERIAL REPAINT PIPELINE</h4><p class="zh">航拍重绘工业流</p><p class="desc">稳定可控的航拍画面重绘。</p>
+    <p class="metric mono">❤ 1394 &nbsp; 💬 330 &nbsp; ↗ 213</p>
+  </figcaption></figure>
+<figure class="reel" data-src="assets/video/v21.mp4" style="--a:var(--red)">
+  <div class="frame">
+    <img src="assets/poster/v21.jpg" alt="INDUSTRIAL-GRADE OUTPUT" loading="lazy">
+    <button class="play" aria-label="播放 INDUSTRIAL-GRADE OUTPUT"><svg viewBox="0 0 24 24" width="26" height="26"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button>
+    <span class="sig mono">SIGNAL.07 · V21 · 158s</span>
+  </div>
+  <figcaption>
+    <span class="chip mono">RPT · AI 重绘 · 空间重构</span>
+    <h4>INDUSTRIAL-GRADE OUTPUT</h4><p class="zh">AI 重绘工业级出图</p><p class="desc">告别传统翻新的工业级画面。</p>
+    <p class="metric mono">❤ 1564 &nbsp; 💬 22 &nbsp; ↗ 393</p>
+  </figcaption></figure>
+<figure class="reel" data-src="assets/video/v32.mp4" style="--a:var(--cyan)">
+  <div class="frame">
+    <img src="assets/poster/v32.jpg" alt="THE MOST STABLE WORKFLOW" loading="lazy">
+    <button class="play" aria-label="播放 THE MOST STABLE WORKFLOW"><svg viewBox="0 0 24 24" width="26" height="26"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button>
+    <span class="sig mono">SIGNAL.08 · V32 · 76s</span>
+  </div>
+  <figcaption>
+    <span class="chip mono">TVC · AI 商业 TVC</span>
+    <h4>THE MOST STABLE WORKFLOW</h4><p class="zh">最稳定的 AI 商业片工作流</p><p class="desc">全流程公开的商业片交付。</p>
+    <p class="metric mono">❤ 1178 &nbsp; 💬 47 &nbsp; ↗ 236</p>
+  </figcaption></figure>
+<figure class="reel" data-src="assets/video/v13.mp4" style="--a:var(--cyan)">
+  <div class="frame">
+    <img src="assets/poster/v13.jpg" alt="A FULL TVC IN ONE HOUR" loading="lazy">
+    <button class="play" aria-label="播放 A FULL TVC IN ONE HOUR"><svg viewBox="0 0 24 24" width="26" height="26"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button>
+    <span class="sig mono">SIGNAL.09 · V13 · 38s</span>
+  </div>
+  <figcaption>
+    <span class="chip mono">TVC · AI 商业 TVC</span>
+    <h4>A FULL TVC IN ONE HOUR</h4><p class="zh">1 小时手搓一条 TVC</p><p class="desc">剧本 → 分镜 → 生图 → 生视频 → 调色。</p>
+    <p class="metric mono">❤ 450 &nbsp; 💬 24 &nbsp; ↗ 104</p>
+  </figcaption></figure>
+<figure class="reel" data-src="assets/video/v37.mp4" style="--a:var(--green)">
+  <div class="frame">
+    <img src="assets/poster/v37.jpg" alt="SIX CINEMATIC MOVES" loading="lazy">
+    <button class="play" aria-label="播放 SIX CINEMATIC MOVES"><svg viewBox="0 0 24 24" width="26" height="26"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button>
+    <span class="sig mono">SIGNAL.10 · V37 · 78s</span>
+  </div>
+  <figcaption>
+    <span class="chip mono">FPV · 运镜 · 穿越机</span>
+    <h4>SIX CINEMATIC MOVES</h4><p class="zh">6 个影视级运镜</p><p class="desc">柯克变焦 / 环绕等专业运镜救活平淡画面。</p>
+    <p class="metric mono">❤ 148 &nbsp; 💬 26 &nbsp; ↗ 15</p>
+  </figcaption></figure>
+<figure class="reel" data-src="assets/video/v14.mp4" style="--a:var(--cyan)">
+  <div class="frame">
+    <img src="assets/poster/v14.jpg" alt="15s VIRAL PRODUCT VIDEO" loading="lazy">
+    <button class="play" aria-label="播放 15s VIRAL PRODUCT VIDEO"><svg viewBox="0 0 24 24" width="26" height="26"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button>
+    <span class="sig mono">SIGNAL.11 · V14 · 103s</span>
+  </div>
+  <figcaption>
+    <span class="chip mono">TVC · AI 商业 TVC</span>
+    <h4>15s VIRAL PRODUCT VIDEO</h4><p class="zh">3 步生成 15 秒爆款带货</p><p class="desc">电商短视频批量化生产。</p>
+    <p class="metric mono">❤ 100 &nbsp; 💬 3 &nbsp; ↗ 20</p>
+  </figcaption></figure>
+<figure class="reel" data-src="assets/video/v09.mp4" style="--a:var(--magenta)">
+  <div class="frame">
+    <img src="assets/poster/v09.jpg" alt="MASTER SCENE CONSISTENCY" loading="lazy">
+    <button class="play" aria-label="播放 MASTER SCENE CONSISTENCY"><svg viewBox="0 0 24 24" width="26" height="26"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button>
+    <span class="sig mono">SIGNAL.12 · V09 · 159s</span>
+  </div>
+  <figcaption>
+    <span class="chip mono">DRA · 数字人 · 角色 · 短剧</span>
+    <h4>MASTER SCENE CONSISTENCY</h4><p class="zh">场景一致性工作流</p><p class="desc">先建稳定空间结构再生成 · 告别抽卡。</p>
+    <p class="metric mono">❤ 298 &nbsp; 💬 8 &nbsp; ↗ 52</p>
+  </figcaption></figure></div>
+</section>
+
+<section class="sec" id="scope">
+  <div class="sec-head"><h2 class="glitch">Four pillars.</h2><p class="dim">定价按项目价值评估，不按时长简单计费 —— 具体金额项目制详询。</p></div>
+  <div class="mini-grid"><div class="mini" style="--a:var(--cyan)"><span class="big">①</span><span class="mono en">CREATIVE &amp; PREP</span><h4>创意与前期</h4><p>脚本 · 分镜 · 风格定调 · 合规审查</p></div>
+<div class="mini" style="--a:var(--red)"><span class="big">②</span><span class="mono en">AI GENERATION</span><h4>AI 视频生成</h4><p>有效镜头数 × 复杂度梯度</p></div>
+<div class="mini" style="--a:var(--green)"><span class="big">③</span><span class="mono en">POST · GRADE · AUDIO</span><h4>后期 · 调色 · 声音</h4><p>跳帧/色调修复 + 配乐 + 字幕</p></div>
+<div class="mini" style="--a:var(--magenta)"><span class="big">④</span><span class="mono en">COMPUTE &amp; RISK</span><h4>算力 · 风险</h4><p>API/GPU + 失败迭代 + 风险溢价</p></div></div>
+  <p class="formula mono">▶ 报价 = 工时 × 时薪 + 算力 × 价值系数 + 风险溢价 · 项目制 · 详询</p>
+</section>
+
+<section class="sec alt" id="catalog">
+  <div class="sec-head"><h2 class="glitch">Broadcast packages.</h2><p class="mono dim">场景产品目录 · 10 个可出售套餐 · 价格项目制详询</p></div>
+  <div class="table-wrap"><table class="sku">
+    <thead><tr><th>CODE</th><th>场景 SCENARIO</th><th>适用客户 FOR</th><th>交付物 DELIVERS</th><th>周期 ETA</th></tr></thead>
+    <tbody><tr><td class="mono code">S-01</td>
+  <td class="scn"><strong>品牌 TVC 广告片</strong><span class="mono">Brand TVC</span></td>
+  <td>品牌 · 快消 · 连锁</td><td>15–60s 成片 · 横竖双版 · 多语字幕</td><td class="eta">5–10 天</td></tr>
+<tr><td class="mono code">S-02</td>
+  <td class="scn"><strong>产品宣传片</strong><span class="mono">Product Film</span></td>
+  <td>制造 · 3C · 家电 · 食饮</td><td>卖点片 · 产品流程可视化</td><td class="eta">3–7 天</td></tr>
+<tr><td class="mono code">S-03</td>
+  <td class="scn"><strong>电商带货短视频</strong><span class="mono">E-commerce Short</span></td>
+  <td>电商 · 直播 · 品牌自播</td><td>15–30s 爆款短视频 · 可批量</td><td class="eta">1–3 天/条</td></tr>
+<tr><td class="mono code">S-04</td>
+  <td class="scn"><strong>IP 短剧 · 漫剧</strong><span class="mono">IP Short Drama</span></td>
+  <td>IP 方 · MCN · 品牌</td><td>多集短剧 · 角色一致</td><td class="eta">按集</td></tr>
+<tr><td class="mono code">S-05</td>
+  <td class="scn"><strong>航拍 · 穿越机视觉</strong><span class="mono">Aerial &amp; FPV</span></td>
+  <td>文旅 · 地产 · 汽车 · 活动</td><td>一镜到底航拍 / 穿越机</td><td class="eta">3–7 天</td></tr>
+<tr><td class="mono code">S-06</td>
+  <td class="scn"><strong>文旅 · 影视城宣传片</strong><span class="mono">Tourism Film</span></td>
+  <td>政府 · 景区 · 文旅</td><td>AI + 实拍宣传片</td><td class="eta">7–15 天</td></tr>
+<tr><td class="mono code">S-07</td>
+  <td class="scn"><strong>工业 · 工厂形象片</strong><span class="mono">Industrial Film</span></td>
+  <td>制造 · 工业 · B2B</td><td>工厂重绘 · 工业级形象片</td><td class="eta">5–10 天</td></tr>
+<tr><td class="mono code">S-08</td>
+  <td class="scn"><strong>老片翻新 · 画面重绘</strong><span class="mono">Footage Restoration</span></td>
+  <td>持有旧素材方</td><td>重绘 · 换天 · 画质修复</td><td class="eta">2–5 天</td></tr>
+<tr><td class="mono code">S-09</td>
+  <td class="scn"><strong>AI 配音 · 配乐定制</strong><span class="mono">Voice &amp; Score</span></td>
+  <td>任意视频项目</td><td>多语配音 · 电影配乐 · 版权安全</td><td class="eta">1–3 天</td></tr>
+<tr><td class="mono code">S-10</td>
+  <td class="scn"><strong>古风 · 质感影像</strong><span class="mono">Period &amp; Premium</span></td>
+  <td>文化 · 国潮 · 高端品牌</td><td>古风 / 高质感影像</td><td class="eta">5–10 天</td></tr></tbody></table></div>
+</section>
+
+<section class="sec" id="why">
+  <div class="sec-head"><h2 class="glitch">Why lock to MUSE.</h2></div>
+  <div class="mini-grid"><div class="mini" style="--a:var(--cyan)"><span class="mono en">INDUSTRIAL STABILITY</span><h4>工业化稳定</h4><p>工程化工作流，不抽卡，可复用交付</p></div>
+<div class="mini" style="--a:var(--red)"><span class="mono en">COST &amp; SPEED</span><h4>降本提效</h4><p>成本砍半，周期天级，实拍 + AI 互补</p></div>
+<div class="mini" style="--a:var(--green)"><span class="mono en">FULL STACK</span><h4>全栈能力</h4><p>TVC → 短剧 → 航拍 → 配音，一站式</p></div>
+<div class="mini" style="--a:var(--magenta)"><span class="mono en">DUBAI · MULTI-LANG</span><h4>迪拜本地 · 多语</h4><p>中东本地交付，中 / 英 / 阿多语</p></div></div>
+</section>
+
+<section class="sec alt" id="index">
+  <div class="sec-head"><h2 class="glitch">Full signal index.</h2><p class="mono dim">全部 49 条作品索引</p></div>
+  <details class="idx"><summary class="mono">▶ 展开 49 条作品索引 / EXPAND FULL INDEX</summary>
+  <div class="table-wrap"><table class="idx-tbl"><thead><tr><th>#</th><th>SIGNAL</th><th>标题 TITLE</th><th>模块</th><th>❤</th></tr></thead>
+  <tbody><tr><td class="mono">01</td><td class="mono sig">V01</td><td>不降画质！不露馅！商业TVC景观AI重绘保姆级教程</td><td class="mono dim">AI重绘·空间重构</td><td class="mono eta">428</td></tr>
+<tr><td class="mono">02</td><td class="mono sig">V02</td><td>一张随手拍教你制作商业质感的后厨大片！</td><td class="mono dim">AI商业TVC</td><td class="mono eta">31</td></tr>
+<tr><td class="mono">03</td><td class="mono sig">V03</td><td>一招搞定AI角色的人机味儿</td><td class="mono dim">数字人·角色·短剧</td><td class="mono eta">83</td></tr>
+<tr><td class="mono">04</td><td class="mono sig">V04</td><td>不想AI瞎猜动作？教你用“16步分解图”生成严谨丝滑的打戏</td><td class="mono dim">数字人·角色·短剧</td><td class="mono eta">103</td></tr>
+<tr><td class="mono">05</td><td class="mono sig">V05</td><td>AI处理复杂跳舞视频解决方案</td><td class="mono dim">数字人·角色·短剧</td><td class="mono eta">71</td></tr>
+<tr><td class="mono">06</td><td class="mono sig">V06</td><td>AI视频没情绪后劲？导演级情绪逻辑拆解！</td><td class="mono dim">数字人·角色·短剧</td><td class="mono eta">137</td></tr>
+<tr><td class="mono">07</td><td class="mono sig">V07</td><td>解决视频一致性问题!小云雀工作流，从此不抽卡! 制作短剧漫剧，再也不</td><td class="mono dim">数字人·角色·短剧</td><td class="mono eta">21</td></tr>
+<tr><td class="mono">08</td><td class="mono sig">V08</td><td>告别AI假感！轻松搞定古风质感视频！！！ 最近我们正好在做，一组古风</td><td class="mono dim">数字人·角色·短剧</td><td class="mono eta">56</td></tr>
+<tr><td class="mono">09</td><td class="mono sig">V09</td><td>告别场景穿帮，一个视频教会你场景一致性！ AI 场景一致性工作流。这</td><td class="mono dim">数字人·角色·短剧</td><td class="mono eta">298</td></tr>
+<tr><td class="mono">10</td><td class="mono sig">V10</td><td>AI可以做这样的真实画面啦 这样的效果大家喜欢吗，喜欢的话下期出教程</td><td class="mono dim">数字人·角色·短剧</td><td class="mono eta">63</td></tr>
+<tr><td class="mono">11</td><td class="mono sig">V11</td><td>GPT image 2 实用玩法分享～</td><td class="mono dim">智能制片中台</td><td class="mono eta">191</td></tr>
+<tr><td class="mono">12</td><td class="mono sig">V12</td><td>告别手动抽卡，全链路 AI 短剧自动化</td><td class="mono dim">数字人·角色·短剧</td><td class="mono eta">61</td></tr>
+<tr><td class="mono">13</td><td class="mono sig">V13</td><td>用AI，1小时手搓TVC广告片 从剧本分镜脚本生图生视频 全流程AI</td><td class="mono dim">智能制片中台</td><td class="mono eta">450</td></tr>
+<tr><td class="mono">14</td><td class="mono sig">V14</td><td>小云雀 AI 实操｜3 步生成 15 秒爆款带货视频</td><td class="mono dim">AI商业TVC</td><td class="mono eta">100</td></tr>
+<tr><td class="mono">15</td><td class="mono sig">V15</td><td>3 步极简流程，教你用AI 彻底摆脱重度 AE/C4D 依赖</td><td class="mono dim">AI重绘·空间重构</td><td class="mono eta">276</td></tr>
+<tr><td class="mono">16</td><td class="mono sig">V16</td><td>甲方压价还嫌平平无奇？传统影视破局方法来了</td><td class="mono dim">AI重绘·空间重构</td><td class="mono eta">234</td></tr>
+<tr><td class="mono">17</td><td class="mono sig">V17</td><td>1分钟学会Ai建筑生长视频</td><td class="mono dim">运镜·穿越机</td><td class="mono eta">170</td></tr>
+<tr><td class="mono">18</td><td class="mono sig">V18</td><td>1分钟0实拍，工业级产品流程拆解！</td><td class="mono dim">智能制片中台</td><td class="mono eta">85</td></tr>
+<tr><td class="mono">19</td><td class="mono sig">V19</td><td>告别传统实拍，广告片高效创作 SOP！</td><td class="mono dim">智能制片中台</td><td class="mono eta">91</td></tr>
+<tr><td class="mono">20</td><td class="mono sig">V20</td><td>2026 工业视觉核心：AI + 实拍工作流</td><td class="mono dim">AI重绘·空间重构</td><td class="mono eta">636</td></tr>
+<tr><td class="mono">21</td><td class="mono sig">V21</td><td>告别传统翻新，AI重绘实现工业级出图!</td><td class="mono dim">AI重绘·空间重构</td><td class="mono eta">1564</td></tr>
+<tr><td class="mono">22</td><td class="mono sig">V22</td><td>零实拍做ai广告短片，保姆级工作流。</td><td class="mono dim">智能制片中台</td><td class="mono eta">140</td></tr>
+<tr><td class="mono">23</td><td class="mono sig">V23</td><td>豆包一键部署航拍重绘工作流！</td><td class="mono dim">AI重绘·空间重构</td><td class="mono eta">1266</td></tr>
+<tr><td class="mono">24</td><td class="mono sig">V24</td><td>视频火了？小心版权律师函！</td><td class="mono dim">声音·版权</td><td class="mono eta">138</td></tr>
+<tr><td class="mono">25</td><td class="mono sig">V25</td><td>工作流分享：图片反推智能体</td><td class="mono dim">智能制片中台</td><td class="mono eta">67</td></tr>
+<tr><td class="mono">26</td><td class="mono sig">V26</td><td>工厂实拍变废为宝：AI空间重构工作流</td><td class="mono dim">AI重绘·空间重构</td><td class="mono eta">7395</td></tr>
+<tr><td class="mono">27</td><td class="mono sig">V27</td><td>如何用 9 宫格逻辑驯服 AI，产出工业级空气净化器 TVC</td><td class="mono dim">AI重绘·空间重构</td><td class="mono eta">257</td></tr>
+<tr><td class="mono">28</td><td class="mono sig">V28</td><td>懂预算懂空间的 AI 分镜，才是专业制片助手</td><td class="mono dim">智能制片中台</td><td class="mono eta">158</td></tr>
+<tr><td class="mono">29</td><td class="mono sig">V29</td><td>人脸和天空都想要？AI搞定TVC级天空光影</td><td class="mono dim">AI商业TVC</td><td class="mono eta">1990</td></tr>
+<tr><td class="mono">30</td><td class="mono sig">V30</td><td>TVC 级换天黑科技：告别抠图追踪，一套智能体搞定工业化交付</td><td class="mono dim">AI重绘·空间重构</td><td class="mono eta">5156</td></tr>
+<tr><td class="mono">31</td><td class="mono sig">V31</td><td>别被24宫格骗了：商业AI视频交付的“黄金9宫格”法则</td><td class="mono dim">智能制片中台</td><td class="mono eta">133</td></tr>
+<tr><td class="mono">32</td><td class="mono sig">V32</td><td>别再乱试了！实测最稳定的 AI 商业片工作流，全流程公开</td><td class="mono dim">AI商业TVC</td><td class="mono eta">1178</td></tr>
+<tr><td class="mono">33</td><td class="mono sig">V33</td><td>告别抽卡：AI 落地商业片之策划独白智能体实录</td><td class="mono dim">智能制片中台</td><td class="mono eta">110</td></tr>
+<tr><td class="mono">34</td><td class="mono sig">V34</td><td>耗时 100 小时！我们做出了影视人专属 AI 神器</td><td class="mono dim">智能制片中台</td><td class="mono eta">177</td></tr>
+<tr><td class="mono">35</td><td class="mono sig">V35</td><td>无实拍！AI 做出 6 位数配饰 TVC</td><td class="mono dim">AI商业TVC</td><td class="mono eta">94</td></tr>
+<tr><td class="mono">36</td><td class="mono sig">V36</td><td>2026年AI +实拍影视行业新解法</td><td class="mono dim">AI+实拍混合</td><td class="mono eta">555</td></tr>
+<tr><td class="mono">37</td><td class="mono sig">V37</td><td>AI 视频画面太平？6 个影视级运镜救回来</td><td class="mono dim">运镜·穿越机</td><td class="mono eta">148</td></tr>
+<tr><td class="mono">38</td><td class="mono sig">V38</td><td>零版权风险！AI 电影感配乐工作流拆解</td><td class="mono dim">声音·版权</td><td class="mono eta">3139</td></tr>
+<tr><td class="mono">39</td><td class="mono sig">V39</td><td>48 小时复刻霸王茶姬TVC！零模特零实拍工作流公开</td><td class="mono dim">AI商业TVC</td><td class="mono eta">205</td></tr>
+<tr><td class="mono">40</td><td class="mono sig">V40</td><td>几张图搞定穿越机镜头   Ai穿越机工作流全公开！</td><td class="mono dim">运镜·穿越机</td><td class="mono eta">6305</td></tr>
+<tr><td class="mono">41</td><td class="mono sig">V41</td><td>48 小时复刻霸王茶姬TVC！零模特零实拍工作流公开</td><td class="mono dim">AI商业TVC</td><td class="mono eta">2496</td></tr>
+<tr><td class="mono">42</td><td class="mono sig">V42</td><td>驯服 AI 乱改画面！航拍重绘工业流公开</td><td class="mono dim">AI重绘·空间重构</td><td class="mono eta">1394</td></tr>
+<tr><td class="mono">43</td><td class="mono sig">V43</td><td>不是设备贵才出片！甜品TVC 聪明的流程比昂贵设备更有用</td><td class="mono dim">AI商业TVC</td><td class="mono eta">26</td></tr>
+<tr><td class="mono">44</td><td class="mono sig">V44</td><td>3小时搞定咖啡宣传片！实拍+ai 成本砍半效率翻倍</td><td class="mono dim">AI+实拍混合</td><td class="mono eta">201</td></tr>
+<tr><td class="mono">45</td><td class="mono sig">V45</td><td>没有高速摄影机？AI 如何“无中生有”一条商业级甜品 TVC</td><td class="mono dim">AI商业TVC</td><td class="mono eta">77</td></tr>
+<tr><td class="mono">46</td><td class="mono sig">V46</td><td>别再花冤枉钱配音了：ElevenLabs 隐藏功能全拆解</td><td class="mono dim">声音·版权</td><td class="mono eta">231</td></tr>
+<tr><td class="mono">47</td><td class="mono sig">V47</td><td>案例拆解：咖啡馆宣传片AI+实拍落地实战！</td><td class="mono dim">AI+实拍混合</td><td class="mono eta">514</td></tr>
+<tr><td class="mono">48</td><td class="mono sig">V48</td><td>AI+实拍 乐陵影视城宣传片</td><td class="mono dim">AI+实拍混合</td><td class="mono eta">39</td></tr>
+<tr><td class="mono">49</td><td class="mono sig">V49</td><td>案例拆解：乐陵影视城宣传片AI+实拍落地实战！</td><td class="mono dim">AI+实拍混合</td><td class="mono eta">3853</td></tr></tbody></table></div></details>
+</section>
+
+<footer class="contact" id="contact">
+  <div class="hero-bars" aria-hidden="true"><i></i><i></i></div>
+  <h2 class="glitch big2">LET'S ROLL.</h2>
+  <p class="mono dim">开始你的项目 · START YOUR SIGNAL</p>
+  <div class="contact-grid">
+    <a class="cc" href="mailto:leon@aimuse.ae" style="--a:var(--red)"><span class="mono">MAIL</span><b>leon@aimuse.ae</b></a>
+    <a class="cc" href="https://www.aimuse.ae" style="--a:var(--green)" target="_blank" rel="noopener"><span class="mono">WEB</span><b>www.aimuse.ae</b></a>
+    <a class="cc" href="https://wa.me/971555671672" style="--a:var(--cyan)" target="_blank" rel="noopener"><span class="mono">WHATSAPP</span><b>+971 55 567 1672</b></a>
+    <div class="cc" style="--a:var(--magenta)"><span class="mono">WECHAT 微信</span><b>王亮 · 四川成都</b></div>
+  </div>
+  <p class="foot mono">MUSE INFORMATION SERVICES L.L.C-FZ · DUBAI UAE · CN +86 156 0167 8377 · © 2026</p>
+</footer>
+<script>// click-to-play reels: swap poster for a <video>, autoplay, pause others & off-screen
+(function(){
+  var reels = document.querySelectorAll('.reel');
+  var players = [];
+  reels.forEach(function(reel){
+    var btn = reel.querySelector('.play');
+    if(!btn) return;
+    btn.addEventListener('click', function(){
+      var frame = reel.querySelector('.frame');
+      var v = document.createElement('video');
+      v.src = reel.dataset.src;
+      v.controls = true; v.autoplay = true; v.playsInline = true; v.preload = 'metadata';
+      v.setAttribute('controlslist','nodownload');
+      // keep the signal tag, replace poster + button
+      var img = frame.querySelector('img'); if(img) img.remove();
+      btn.remove();
+      frame.appendChild(v);
+      players.push(v);
+      // pause other playing videos
+      players.forEach(function(p){ if(p!==v) p.pause(); });
+      v.play().catch(function(){});
+    });
+  });
+  // pause videos when scrolled off-screen
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        var vid = e.target.querySelector('video');
+        if(vid && !e.isIntersecting && !vid.paused) vid.pause();
+      });
+    }, {threshold:0.25});
+    reels.forEach(function(r){ io.observe(r); });
+  }
+})();
+</script>
+</body>
+</html>
