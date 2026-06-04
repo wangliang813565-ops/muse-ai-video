@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MUSE · AI Video Studio — Capabilities &amp; Product Catalogue</title>
+<meta name="description" content="Broadcast-grade AI video from MUSE, Dubai — commercial TVC, industrial repaint, aerial &amp; FPV, AI + live-action, digital humans and AI audio. Capabilities and product catalogue.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="../assets/img/muse_logo.png">
+<style>/* ===== MUSE AI Video — "Chromatic Luxe" : chromatic-rgb × Middle-East gold luxury ===== */
+:root{
+  --bg:#0B0A10; --bg2:#0E0C14; --panel:#15121C; --panel2:#1C1826; --line:#2A2536;
+  --gold:#C9A961; --gold-b:#E7CB8B; --gold-dim:#6E5C34;
+  --ivory:#F3EEE6; --soft:#CFC8BB; --muted:#8C8576;
+  --red:#FF3A5E; --cyan:#37D8F2;
+  --disp:'Space Grotesk',sans-serif; --serif:'Cormorant Garamond',Georgia,serif;
+  --mono:'JetBrains Mono',monospace; --body:'Inter',sans-serif;
+  --max:1180px;
+  --star:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><g fill='none' stroke='%23C9A961' stroke-width='1.1'><rect x='8.5' y='8.5' width='15' height='15'/><rect x='8.5' y='8.5' width='15' height='15' transform='rotate(45 16 16)'/></g></svg>");
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{background:var(--bg);color:var(--ivory);font-family:var(--body);line-height:1.62;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.mono{font-family:var(--mono)}
+.dim{color:var(--muted)}
+h1,h2,h3,h4{font-family:var(--disp);font-weight:700;letter-spacing:-.02em;line-height:1.02}
+/* chromatic signal signature — refined, restrained */
+.glitch{text-shadow:-1px 0 var(--red),1px 0 var(--cyan)}
+.big,.big2{text-shadow:-2.5px 0 var(--red),2.5px 0 var(--cyan),0 0 1px rgba(231,203,139,.25)}
+.kicker{color:var(--gold);font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;font-weight:700}
+
+/* ambient: warm vignette + faint scanline + gold grain */
+.scan{position:fixed;inset:0;pointer-events:none;z-index:80}
+.scan::before{content:"";position:absolute;inset:0;
+  background:repeating-linear-gradient(0deg,rgba(231,203,139,.022) 0 1px,transparent 1px 3px);opacity:.7}
+.scan::after{content:"";position:absolute;inset:0;
+  background:radial-gradient(120% 80% at 50% 0%,transparent 55%,rgba(0,0,0,.55) 100%)}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:90;display:flex;align-items:center;justify-content:space-between;
+  gap:1rem;padding:.8rem clamp(1rem,4vw,2.6rem);background:rgba(11,10,16,.78);
+  backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:.65rem}
+.brand img{width:34px;height:auto}
+.brand span{font-family:var(--disp);font-weight:700;font-size:1.05rem;line-height:1;display:flex;flex-direction:column}
+.brand small{font-size:.5rem;letter-spacing:.3em;color:var(--gold);font-weight:400;margin-top:3px}
+.nav .links{display:flex;gap:1.6rem;font-size:.7rem;letter-spacing:.16em}
+.nav .links a{color:var(--soft);transition:color .25s;position:relative;padding-bottom:2px}
+.nav .links a::after{content:"";position:absolute;left:0;bottom:-2px;width:0;height:1px;background:var(--gold);transition:width .25s}
+.nav .links a:hover,.nav .links a:focus-visible{color:var(--gold)}
+.nav .links a:hover::after{width:100%}
+.nav-end{display:flex;align-items:center;gap:.85rem}
+.nav .lang{font-family:var(--mono);font-size:.6rem;letter-spacing:.18em;color:var(--gold);
+  border:1px solid var(--gold-dim);padding:.32rem .62rem;transition:.25s}
+.nav .lang:hover,.nav .lang:focus-visible{background:var(--gold);color:var(--bg);border-color:var(--gold)}
+.rec{font-size:.6rem;letter-spacing:.22em;color:var(--gold);display:flex;align-items:center;gap:.45rem}
+.rec::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--gold);
+  box-shadow:0 0 8px var(--gold);animation:blink 1.8s infinite}
+@keyframes blink{50%{opacity:.25}}
+@media(max-width:560px){.nav .rec{display:none}}
+
+/* ornament divider */
+.ornament{display:flex;align-items:center;justify-content:center;gap:1.2rem;max-width:var(--max);
+  margin:0 auto;padding:clamp(1.4rem,3vw,2.4rem) clamp(1rem,4vw,2.4rem)}
+.ornament::before,.ornament::after{content:"";height:1px;flex:1;max-width:320px;
+  background:linear-gradient(90deg,transparent,var(--gold-dim),transparent)}
+.ornament span{width:26px;height:26px;background:var(--star) center/contain no-repeat;opacity:.9;flex:none}
+
+/* hero */
+.hero{position:relative;padding:clamp(2.6rem,7vw,5rem) clamp(1rem,4vw,2.6rem) clamp(2rem,5vw,3.4rem);overflow:hidden}
+.hero-in{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:1.12fr .88fr;
+  gap:clamp(1.6rem,4vw,3.2rem);align-items:center}
+.hero-text .kicker{display:block;margin-bottom:1.1rem}
+.hero h1.big{font-size:clamp(3rem,9vw,6.3rem);line-height:.9;margin-bottom:1.3rem}
+.lead{font-family:var(--serif);font-size:clamp(1.4rem,3vw,2rem);font-weight:500;color:var(--gold-b);font-style:italic}
+.lead-en{font-size:.7rem;letter-spacing:.24em;color:var(--muted);margin-top:.5rem}
+.hero-stats{display:flex;gap:clamp(1.4rem,4vw,2.8rem);margin:1.9rem 0}
+.hero-stats div{display:flex;flex-direction:column}
+.hero-stats b{font-family:var(--serif);font-weight:600;font-size:clamp(2rem,5vw,3rem);line-height:1;color:var(--gold)}
+.hero-stats span{font-size:.58rem;letter-spacing:.2em;color:var(--muted);margin-top:.4rem}
+.cta{display:flex;gap:.9rem;flex-wrap:wrap}
+.btn{font-family:var(--mono);font-size:.76rem;letter-spacing:.1em;padding:.78rem 1.5rem;
+  border:1px solid var(--gold);color:var(--gold);transition:.25s;cursor:pointer}
+.btn:hover,.btn:focus-visible{background:var(--gold);color:var(--bg)}
+.btn.ghost{border-color:var(--line);color:var(--soft)}
+.btn.ghost:hover{border-color:var(--gold);color:var(--gold);background:transparent}
+.hero-media{position:relative}
+.hero-media img{width:100%;aspect-ratio:16/10;object-fit:cover;position:relative;z-index:2;
+  border-radius:140px 140px 0 0;border:1px solid var(--gold-dim)} /* mihrab arch top */
+.hero-media::before{content:"";position:absolute;inset:-8px -8px 8px -8px;border:1px solid var(--gold-dim);
+  border-radius:148px 148px 0 0;z-index:1}
+.hero-media .tag{position:absolute;top:-1.4rem;left:50%;transform:translateX(-50%);font-size:.6rem;letter-spacing:.2em;color:var(--gold);z-index:3}
+.hero-bars{position:absolute;inset:0;pointer-events:none;opacity:.5}
+.hero-bars i{position:absolute;left:0;right:0;height:2px}
+.hero-bars i:nth-child(1){top:26%;background:var(--cyan);transform:translateX(20px);opacity:.5}
+.hero-bars i:nth-child(2){top:60%;background:var(--red);transform:translateX(-30px);opacity:.4}
+.hero-bars i:nth-child(3){top:84%;height:1px;background:var(--gold);transform:translateX(40px)}
+
+/* band */
+.band{max-width:920px;margin:0 auto;padding:clamp(1.6rem,4vw,2.6rem) clamp(1rem,4vw,2.4rem);text-align:center}
+.band-lead{font-family:var(--serif);font-size:clamp(1.3rem,3vw,1.9rem);font-weight:500;line-height:1.5;color:var(--ivory)}
+.band-en{font-size:.74rem;letter-spacing:.16em;color:var(--muted);margin-top:.9rem}
+
+/* sections */
+.sec{max-width:var(--max);margin:0 auto;padding:clamp(2.4rem,5.5vw,4.2rem) clamp(1rem,4vw,2.6rem)}
+.sec.alt{max-width:none;background:linear-gradient(180deg,var(--bg2),var(--bg));border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.sec.alt>*{max-width:var(--max);margin-left:auto;margin-right:auto}
+.sec-head{margin-bottom:2.4rem}
+.sec-head h2{font-size:clamp(1.8rem,4.4vw,3rem);margin:.5rem 0 .55rem}
+.sec-head .big2{font-size:clamp(2.2rem,6vw,4rem)}
+.sec-head p{color:var(--soft);max-width:780px;font-size:.96rem}
+.sec-head .kicker{display:flex;align-items:center;gap:.6rem;margin-bottom:.2rem}
+.sec-head .kicker::before{content:"";width:18px;height:18px;background:var(--star) center/contain no-repeat;flex:none}
+.sec-head h2::after{content:"";display:block;width:56px;height:2px;margin-top:.9rem;
+  background:linear-gradient(90deg,var(--gold),transparent)}
+
+/* channel grid */
+.ch-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.ch-card{background:var(--panel);border:1px solid var(--line);overflow:hidden;cursor:pointer;
+  transition:transform .25s,border-color .25s,box-shadow .25s;position:relative}
+.ch-card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:var(--gold);opacity:.55;z-index:3}
+.ch-card:hover,.ch-card:focus-visible{transform:translateY(-5px);border-color:var(--gold-dim);box-shadow:0 18px 40px rgba(0,0,0,.5)}
+.ch-card:hover::before{opacity:1}
+.ch-pic{aspect-ratio:16/9;overflow:hidden}
+.ch-pic img{width:100%;height:100%;object-fit:cover;transition:transform .5s;filter:saturate(.92)}
+.ch-card:hover .ch-pic img{transform:scale(1.06)}
+.ch-meta{padding:1.1rem 1.2rem 1.3rem}
+.ch-meta .code{font-size:.64rem;letter-spacing:.2em;color:var(--gold)}
+.ch-meta h3{font-size:1.18rem;margin:.45rem 0 .35rem;color:var(--ivory)}
+.ch-meta .zh{color:var(--soft);font-size:.92rem}
+.ch-meta .dim{display:block;margin-top:.75rem;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+
+/* mini grid */
+.mini-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.1rem}
+.mini{background:var(--panel);border:1px solid var(--line);padding:1.5rem 1.3rem;position:relative;transition:border-color .25s}
+.mini::before{content:"";position:absolute;top:0;left:0;width:100%;height:2px;background:var(--gold);opacity:.5}
+.mini:hover{border-color:var(--gold-dim)}
+.mini .big{font-family:var(--serif);font-weight:600;font-size:2.3rem;color:var(--gold);display:block;line-height:1}
+.mini .en{display:block;font-size:.6rem;letter-spacing:.18em;color:var(--gold);margin:.6rem 0 .35rem;text-transform:uppercase}
+.mini h4{font-size:1.06rem;margin-bottom:.45rem;color:var(--ivory)}
+.mini p{font-size:.85rem;color:var(--muted);line-height:1.5}
+.formula{margin-top:1.6rem;color:var(--ivory);font-size:.85rem;letter-spacing:.04em;
+  border-left:2px solid var(--gold);padding:.3rem 0 .3rem .95rem}
+
+/* modules */
+.modules{max-width:var(--max);margin:0 auto;padding:0 clamp(1rem,4vw,2.6rem)}
+.module{display:grid;grid-template-columns:.86fr 1fr;gap:clamp(1.6rem,3.5vw,3rem);
+  align-items:center;padding:clamp(2rem,4.5vw,3.2rem) 0;border-bottom:1px solid var(--line)}
+.module.flip .m-img{order:2}
+.m-img{position:relative}
+.m-img img{width:100%;aspect-ratio:16/9;object-fit:cover;border:1px solid var(--line);filter:saturate(.92)}
+.m-img::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--gold)}
+.m-img .tag{position:absolute;top:.7rem;left:.7rem;font-size:.58rem;letter-spacing:.16em;color:var(--gold);
+  background:rgba(11,10,16,.78);padding:.28rem .55rem;border:1px solid var(--gold-dim)}
+.m-body .kicker{color:var(--gold);display:flex;align-items:center;gap:.5rem;margin-bottom:.55rem}
+.m-body .kicker::before{content:"";width:15px;height:15px;background:var(--star) center/contain no-repeat;flex:none}
+.m-body h3{font-size:clamp(1.6rem,3.4vw,2.3rem);margin-bottom:.45rem;color:var(--ivory)}
+.zh-title{font-size:1.16rem;font-weight:600;margin-bottom:.55rem;color:var(--gold-b)}
+.tag-line{color:var(--soft);font-size:.93rem;margin-bottom:1.2rem}
+.caps{list-style:none;display:flex;flex-direction:column;gap:.8rem}
+.caps li{display:flex;gap:.75rem;align-items:flex-start}
+.caps .dot{width:7px;height:7px;background:var(--gold);margin-top:8px;flex:none;transform:rotate(45deg)}
+.caps strong{display:block;font-size:.98rem;color:var(--ivory)}
+.caps span{display:block;font-size:.82rem;color:var(--muted)}
+.metric{margin-top:1.2rem;color:var(--gold);font-size:.8rem;border-top:1px solid var(--line);padding-top:.8rem;letter-spacing:.02em}
+
+/* showcase */
+.showcase .sec-head{text-align:center}
+.showcase .sec-head .kicker{justify-content:center}
+.showcase .sec-head h2::after{margin-left:auto;margin-right:auto}
+.showcase .sec-head p{margin:0 auto}
+.reel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem}
+.reel{background:var(--panel);border:1px solid var(--line);overflow:hidden;display:flex;flex-direction:column;transition:border-color .25s,box-shadow .25s}
+.reel:hover{border-color:var(--gold-dim);box-shadow:0 16px 36px rgba(0,0,0,.5)}
+.reel .frame{position:relative;aspect-ratio:16/9;background:#000;overflow:hidden}
+.reel .frame::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--gold);z-index:2}
+.reel .frame img{width:100%;height:100%;object-fit:cover;filter:saturate(.94)}
+.reel .frame video{width:100%;height:100%;object-fit:contain;background:#000}
+.reel .play{position:absolute;inset:0;margin:auto;width:64px;height:64px;border-radius:50%;
+  border:1px solid var(--gold);background:rgba(11,10,16,.4);color:var(--gold);display:flex;align-items:center;
+  justify-content:center;cursor:pointer;transition:.25s;backdrop-filter:blur(3px)}
+.reel .play:hover,.reel .play:focus-visible{background:var(--gold);border-color:var(--gold);color:var(--bg);transform:scale(1.06)}
+.reel .sig{position:absolute;top:.55rem;left:.55rem;font-size:.56rem;letter-spacing:.14em;color:var(--gold-b);
+  background:rgba(11,10,16,.72);padding:.22rem .5rem;border:1px solid var(--gold-dim)}
+.reel figcaption{padding:1.1rem 1.2rem 1.3rem;display:flex;flex-direction:column;gap:.38rem;flex:1}
+.reel .chip{align-self:flex-start;font-size:.58rem;letter-spacing:.12em;color:var(--gold);
+  border:1px solid var(--gold-dim);padding:.22rem .55rem;margin-bottom:.25rem}
+.reel h4{font-size:1.02rem;color:var(--ivory)}
+.reel .zh{font-size:.9rem;font-weight:600;color:var(--gold-b)}
+.reel .desc{font-size:.8rem;color:var(--muted);line-height:1.45}
+.reel .metric{margin-top:auto;border-top:1px solid var(--line);padding-top:.65rem;color:var(--gold);font-size:.78rem}
+
+/* tables */
+.table-wrap{overflow-x:auto;border:1px solid var(--line)}
+table{width:100%;border-collapse:collapse;min-width:680px}
+.sku thead th,.idx-tbl thead th{background:var(--panel2);color:var(--gold);font-family:var(--mono);
+  font-size:.64rem;letter-spacing:.12em;text-align:left;padding:.8rem .9rem;border-bottom:1px solid var(--gold-dim);font-weight:700}
+.sku td{padding:.7rem .9rem;border-bottom:1px solid var(--line);font-size:.9rem;vertical-align:middle}
+.sku tbody tr{transition:background .2s}
+.sku tbody tr:hover{background:rgba(201,169,97,.05)}
+.sku .code{color:var(--gold-b);font-weight:700;font-size:.78rem;font-family:var(--mono)}
+.sku .scn strong{display:block;color:var(--ivory)}
+.sku .scn span{font-size:.64rem;color:var(--muted)}
+.sku td:nth-child(3),.sku td:nth-child(4){color:var(--soft)}
+.sku .eta{color:var(--gold);font-weight:600;white-space:nowrap;font-family:var(--mono);font-size:.82rem}
+.idx{margin-top:.5rem}
+.idx summary{cursor:pointer;color:var(--gold);font-size:.76rem;letter-spacing:.12em;padding:.8rem 0;font-family:var(--mono)}
+.idx-tbl td{padding:.42rem .8rem;border-bottom:1px solid var(--line);font-size:.78rem}
+.idx-tbl .sig{color:var(--gold-b);font-weight:700;font-family:var(--mono)}
+.idx-tbl .eta{color:var(--gold);text-align:right;font-family:var(--mono)}
+.idx-tbl tbody tr:hover{background:rgba(201,169,97,.05)}
+
+/* contact */
+.contact{position:relative;text-align:center;padding:clamp(3rem,8vw,5.5rem) clamp(1rem,4vw,2.6rem);
+  border-top:1px solid var(--line);overflow:hidden;background:linear-gradient(180deg,var(--bg2),var(--bg))}
+.contact h2{font-size:clamp(2.6rem,9vw,5.5rem);margin-bottom:.7rem}
+.contact .dim{letter-spacing:.28em;font-size:.7rem;color:var(--gold)}
+.contact-grid{max-width:920px;margin:2.4rem auto 1.5rem;display:grid;grid-template-columns:repeat(4,1fr);gap:1.1rem}
+.cc{background:var(--panel);border:1px solid var(--line);padding:1.25rem;position:relative;
+  display:flex;flex-direction:column;gap:.45rem;transition:.25s}
+.cc::before{content:"";position:absolute;top:0;left:0;width:100%;height:2px;background:var(--gold);opacity:.55}
+a.cc:hover,a.cc:focus-visible{transform:translateY(-4px);border-color:var(--gold-dim)}
+.cc .mono{font-size:.58rem;letter-spacing:.18em;color:var(--muted)}
+.cc b{font-family:var(--serif);font-weight:600;font-size:1.12rem;color:var(--gold-b);word-break:break-word}
+.foot{color:var(--muted);font-size:.64rem;letter-spacing:.12em;margin-top:1.1rem}
+
+/* responsive */
+@media(max-width:900px){
+  .hero-in{grid-template-columns:1fr}
+  .hero-media{order:-1;max-width:440px;margin:0 auto}
+  .ch-grid,.mini-grid{grid-template-columns:repeat(2,1fr)}
+  .reel-grid{grid-template-columns:repeat(2,1fr)}
+  .contact-grid{grid-template-columns:repeat(2,1fr)}
+  .module,.module.flip .m-img{grid-template-columns:1fr;order:0}
+  .module .m-img{order:0!important;margin-bottom:1.3rem}
+}
+@media(max-width:560px){
+  .nav .links{display:none}
+  .ch-grid,.mini-grid,.reel-grid,.contact-grid{grid-template-columns:1fr}
+  .hero-stats{gap:1.4rem}
+  .ornament::before,.ornament::after{max-width:90px}
+}
+@media (prefers-reduced-motion: reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .ch-card:hover .ch-pic img{transform:none}
+}
+</style>
+</head>
+<body>
+<div class="scan" aria-hidden="true"></div>
+
+<nav class="nav">
+  <a class="brand" href="#top"><img src="../assets/img/muse_logo.png" alt="MUSE"><span>MUSE<small class="mono">AI VIDEO STUDIO</small></span></a>
+  <div class="links mono">
+    <a href="#channels">CAPABILITIES</a><a href="#showcase">SHOWREEL</a>
+    <a href="#catalog">CATALOGUE</a><a href="#contact">CONTACT</a>
+  </div>
+  <div class="nav-end"><a class="lang" href="../">中文</a><span class="rec mono">● REC</span></div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-bars" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div class="hero-in">
+    <div class="hero-text">
+      <span class="kicker mono">▶ CH.00 / SIGNAL.SPLIT / 2026</span>
+      <h1 class="glitch big">AI VIDEO<br>STUDIO.</h1>
+      <p class="lead">Cinematic AI video, engineered in Dubai.</p>
+      <p class="lead-en mono">CAPABILITIES &amp; PRODUCT CATALOGUE</p>
+      <div class="hero-stats">
+        <div><b>49</b><span class="mono">SIGNAL REELS</span></div>
+        <div><b>07</b><span class="mono">CHANNELS</span></div>
+        <div><b>78m</b><span class="mono">ON RECORD</span></div>
+      </div>
+      <div class="cta"><a class="btn" href="#showcase">Watch the showreel ▶</a><a class="btn ghost" href="#contact">Start a project</a></div>
+    </div>
+    <div class="hero-media"><img src="../assets/img/hero.jpg" alt="MUSE showreel" loading="eager"><span class="mono tag">▶ SHOWREEL · SIGNAL 01</span></div>
+  </div>
+</header>
+
+<section class="band" id="about">
+  <p class="band-lead">MUSE turns a single brief into broadcast-grade video — produced through an engineered pipeline as a stable signal, not a lucky draw.</p>
+  <p class="band-en mono">ENGINEERED, NOT GAMBLED</p>
+</section>
+
+<div class="ornament" aria-hidden="true"><span></span></div>
+
+<section class="sec" id="channels">
+  <div class="sec-head"><span class="kicker mono">Capabilities</span><h2 class="glitch">Six channels.</h2><p class="dim">Six core capabilities, one production engine.</p></div>
+  <div class="ch-grid"><a class="ch-card" href="#mod-TVC">
+  <div class="ch-pic"><img src="../assets/poster/v32.jpg" alt="COMMERCIAL TVC" loading="lazy"></div>
+  <div class="ch-meta"><span class="mono code">CH.01</span>
+    <h3>COMMERCIAL TVC</h3><p class="zh">End-to-End Production</p>
+    <span class="mono dim">▶ End-to-End Production</span></div></a>
+<a class="ch-card" href="#mod-RPT">
+  <div class="ch-pic"><img src="../assets/poster/v26.jpg" alt="REPAINT &amp; SPACE" loading="lazy"></div>
+  <div class="ch-meta"><span class="mono code">CH.02</span>
+    <h3>REPAINT &amp; SPACE</h3><p class="zh">Industrial Reconstruction</p>
+    <span class="mono dim">▶ Industrial Reconstruction</span></div></a>
+<a class="ch-card" href="#mod-FPV">
+  <div class="ch-pic"><img src="../assets/poster/v40.jpg" alt="CINEMATOGRAPHY" loading="lazy"></div>
+  <div class="ch-meta"><span class="mono code">CH.03</span>
+    <h3>CINEMATOGRAPHY</h3><p class="zh">Camera Moves &amp; FPV</p>
+    <span class="mono dim">▶ Camera Moves &amp; FPV</span></div></a>
+<a class="ch-card" href="#mod-HYB">
+  <div class="ch-pic"><img src="../assets/poster/v49.jpg" alt="HYBRID PRODUCTION" loading="lazy"></div>
+  <div class="ch-meta"><span class="mono code">CH.04</span>
+    <h3>HYBRID PRODUCTION</h3><p class="zh">AI + Live-Action</p>
+    <span class="mono dim">▶ AI + Live-Action</span></div></a>
+<a class="ch-card" href="#mod-DRA">
+  <div class="ch-pic"><img src="../assets/poster/v09.jpg" alt="DIGITAL HUMANS" loading="lazy"></div>
+  <div class="ch-meta"><span class="mono code">CH.05</span>
+    <h3>DIGITAL HUMANS</h3><p class="zh">Characters &amp; Drama</p>
+    <span class="mono dim">▶ Characters &amp; Drama</span></div></a>
+<a class="ch-card" href="#mod-AUD">
+  <div class="ch-pic"><img src="../assets/poster/v38.jpg" alt="AUDIO ENGINEERING" loading="lazy"></div>
+  <div class="ch-meta"><span class="mono code">CH.06</span>
+    <h3>AUDIO ENGINEERING</h3><p class="zh">Voice, Score &amp; Rights</p>
+    <span class="mono dim">▶ Voice, Score &amp; Rights</span></div></a></div>
+</section>
+
+<section class="sec alt" id="method">
+  <div class="sec-head"><span class="kicker mono">The MUSE Method</span><h2 class="glitch">Not gacha. Engineering.</h2><p class="dim">No lucky draws. A reusable production engine — storyboard rules, agents and consistency locks turn generation into a deliverable pipeline.</p></div>
+  <div class="mini-grid"><div class="mini"><span class="big">01</span><span class="mono en">GOLDEN 9-GRID</span><p>The shot-structure rule behind commercial delivery.</p></div>
+<div class="mini"><span class="big">02</span><span class="mono en">SMART STORYBOARD</span><p>Storyboards that respect budget and space.</p></div>
+<div class="mini"><span class="big">03</span><span class="mono en">SCRIPT &amp; REVERSE AGENTS</span><p>Concept monologue and image-to-prompt reverse engineering.</p></div>
+<div class="mini"><span class="big">04</span><span class="mono en">CONSISTENCY LOCK</span><p>Character, scene and style — stable across every shot.</p></div></div>
+</section>
+
+<div class="modules"><section class="module " id="mod-TVC">
+  <div class="m-img"><img src="../assets/poster/v32.jpg" alt="COMMERCIAL TVC" loading="lazy"><span class="tag mono">CH.01 · REEL</span></div>
+  <div class="m-body">
+    <span class="kicker mono">End-to-End Production</span>
+    <h3 class="glitch">COMMERCIAL TVC</h3>
+    <p class="tag-line">Script and storyboard to graded master — a full commercial, produced end to end.</p>
+    <ul class="caps"><li><span class="dot"></span><div><strong>Full pipeline</strong><span>Script → storyboard → image → video → grade</span></div></li><li><span class="dot"></span><div><strong>One-hour turnaround</strong><span>A finished TVC cut in as little as an hour</span></div></li><li><span class="dot"></span><div><strong>Locked consistency</strong><span>Product, character and scene held across shots</span></div></li><li><span class="dot"></span><div><strong>Multi-format delivery</strong><span>Landscape + vertical, multi-language subtitles, 1080p / 4K</span></div></li></ul>
+    <p class="metric mono">Top reels — Sky replacement 5.1k · Stable workflow 1.2k</p>
+  </div></section>
+<section class="module flip" id="mod-RPT">
+  <div class="m-img"><img src="../assets/poster/v26.jpg" alt="REPAINT &amp; SPACE" loading="lazy"><span class="tag mono">CH.02 · REEL</span></div>
+  <div class="m-body">
+    <span class="kicker mono">Industrial Reconstruction</span>
+    <h3 class="glitch">REPAINT &amp; SPACE</h3>
+    <p class="tag-line">Turn rough or legacy footage into industrial-grade imagery.</p>
+    <ul class="caps"><li><span class="dot"></span><div><strong>Industrial repaint</strong><span>Tired factory footage, reborn — legacy clips restored</span></div></li><li><span class="dot"></span><div><strong>TVC-grade skies</strong><span>Sky replacement by agent — no rotoscoping or tracking</span></div></li><li><span class="dot"></span><div><strong>Spatial reconstruction</strong><span>Build a stable spatial structure, then generate</span></div></li><li><span class="dot"></span><div><strong>Replaces compositing</strong><span>Cuts heavy AE / C4D post dependencies</span></div></li></ul>
+    <p class="metric mono">Top reels — Footage reborn 7.4k · Sky replacement 5.1k</p>
+  </div></section>
+<section class="module " id="mod-FPV">
+  <div class="m-img"><img src="../assets/poster/v40.jpg" alt="CINEMATOGRAPHY" loading="lazy"><span class="tag mono">CH.03 · REEL</span></div>
+  <div class="m-body">
+    <span class="kicker mono">Camera Moves &amp; FPV</span>
+    <h3 class="glitch">CINEMATOGRAPHY</h3>
+    <p class="tag-line">Cinematic moves and FPV one-takes, from a handful of stills.</p>
+    <ul class="caps"><li><span class="dot"></span><div><strong>FPV one-take</strong><span>A fly-through built from a few aerial photos</span></div></li><li><span class="dot"></span><div><strong>Cinematic moves</strong><span>Six pro moves — dolly-zoom, orbit and more</span></div></li><li><span class="dot"></span><div><strong>Architecture growth</strong><span>Growth animation and scene fly-throughs</span></div></li><li><span class="dot"></span><div><strong>Fully directable</strong><span>Speed, path and focus, under control</span></div></li></ul>
+    <p class="metric mono">Top reel — FPV workflow 6.3k · 1.1k comments</p>
+  </div></section>
+<section class="module flip" id="mod-HYB">
+  <div class="m-img"><img src="../assets/poster/v49.jpg" alt="HYBRID PRODUCTION" loading="lazy"><span class="tag mono">CH.04 · REEL</span></div>
+  <div class="m-body">
+    <span class="kicker mono">AI + Live-Action</span>
+    <h3 class="glitch">HYBRID PRODUCTION</h3>
+    <p class="tag-line">Live-action footage, completed and elevated with AI.</p>
+    <ul class="caps"><li><span class="dot"></span><div><strong>Complementary by design</strong><span>Live-action and AI, working together</span></div></li><li><span class="dot"></span><div><strong>Half the cost</strong><span>A finished promo in three hours</span></div></li><li><span class="dot"></span><div><strong>Proven on real briefs</strong><span>Film cities, cafés, desserts, beverage brands</span></div></li><li><span class="dot"></span><div><strong>Lean delivery</strong><span>Broadcast results without a large post team</span></div></li></ul>
+    <p class="metric mono">Top reel — Film-city promo 3.9k</p>
+  </div></section>
+<section class="module " id="mod-DRA">
+  <div class="m-img"><img src="../assets/poster/v09.jpg" alt="DIGITAL HUMANS" loading="lazy"><span class="tag mono">CH.05 · REEL</span></div>
+  <div class="m-body">
+    <span class="kicker mono">Characters &amp; Drama</span>
+    <h3 class="glitch">DIGITAL HUMANS</h3>
+    <p class="tag-line">Consistent characters and automated drama — no more gacha.</p>
+    <ul class="caps"><li><span class="dot"></span><div><strong>Cross-shot consistency</strong><span>Characters and scenes locked, no continuity breaks</span></div></li><li><span class="dot"></span><div><strong>Automated drama</strong><span>Full-pipeline short-form and comic-drama</span></div></li><li><span class="dot"></span><div><strong>Engineered realism</strong><span>Period texture, with the “AI look” removed</span></div></li><li><span class="dot"></span><div><strong>Complex motion</strong><span>Rigorous fight choreography from 16-step breakdowns</span></div></li></ul>
+    <p class="metric mono">Top reel — Scene consistency 298 · period tests</p>
+  </div></section>
+<section class="module flip" id="mod-AUD">
+  <div class="m-img"><img src="../assets/poster/v38.jpg" alt="AUDIO ENGINEERING" loading="lazy"><span class="tag mono">CH.06 · REEL</span></div>
+  <div class="m-body">
+    <span class="kicker mono">Voice, Score &amp; Rights</span>
+    <h3 class="glitch">AUDIO ENGINEERING</h3>
+    <p class="tag-line">AI voice and score, copyright-clear, cinematic.</p>
+    <ul class="caps"><li><span class="dot"></span><div><strong>Multi-language voice</strong><span>AI dubbing via ElevenLabs</span></div></li><li><span class="dot"></span><div><strong>Cinematic score</strong><span>A film-grade scoring workflow</span></div></li><li><span class="dot"></span><div><strong>Rights-clear</strong><span>Copyright-clear soundtracks, zero risk</span></div></li><li><span class="dot"></span><div><strong>Clearance built in</strong><span>Similar-music infringement, engineered out</span></div></li></ul>
+    <p class="metric mono">Top reel — Cinematic scoring 3.1k</p>
+  </div></section></div>
+
+<div class="ornament" aria-hidden="true"><span></span></div>
+
+<section class="sec showcase" id="showcase">
+  <div class="sec-head"><span class="kicker mono">▶ SIGNAL SHOWCASE</span><h2 class="glitch big2">Showreel</h2><p class="dim">Twelve original reels embedded — click any frame to play.</p></div>
+  <div class="reel-grid"><figure class="reel" data-src="../assets/video/v26.mp4">
+  <div class="frame">
+    <img src="../assets/poster/v26.jpg" alt="FACTORY FOOTAGE REBORN" loading="lazy">
+    <button class="play" aria-label="Play FACTORY FOOTAGE REBORN"><svg viewBox="0 0 24 24" width="26" height="26"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button>
+    <span class="sig mono">SIGNAL.01 · V26 · 131s</span>
+  </div>
+  <figcaption>
+    <span class="chip mono">RPT · Repaint &amp; Space</span>
+    <h4>FACTORY FOOTAGE REBORN</h4><p class="desc">AI spatial reconstruction from raw factory footage.</p>
+    <p class="metric mono">❤ 7395 &nbsp; 💬 138 &nbsp; ↗ 2244</p>
+  </figcaption></figure>
+<figure class="reel" data-src="../assets/video/v40.mp4">
+  <div class="frame">
+    <img src="../assets/poster/v40.jpg" alt="FPV FROM A FEW STILLS" loading="lazy">
+    <button class="play" aria-label="Play FPV FROM A FEW STILLS"><svg viewBox="0 0 24 24" width="26" height="26"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button>
+    <span class="sig mono">SIGNAL.02 · V40 · 95s</span>
+  </div>
+  <figcaption>
+    <span class="chip mono">FPV · Cinematography</span>
+    <h4>FPV FROM A FEW STILLS</h4><p class="desc">A cinematic FPV one-take from ordinary aerial photos.</p>
+    <p class="metric mono">❤ 6305 &nbsp; 💬 1102 &nbsp; ↗ 1271</p>
+  </figcaption></figure>
+<figure class="reel" data-src="../assets/video/v30.mp4">
+  <div class="frame">
+    <img src="../assets/poster/v30.jpg" alt="TVC-GRADE SKY REPLACEMENT" loading="lazy">
+    <button class="play" aria-label="Play TVC-GRADE SKY REPLACEMENT"><svg viewBox="0 0 24 24" width="26" height="26"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button>
+    <span class="sig mono">SIGNAL.03 · V30 · 102s</span>
+  </div>
+  <figcaption>
+    <span class="chip mono">RPT · Repaint &amp; Space</span>
+    <h4>TVC-GRADE SKY REPLACEMENT</h4><p class="desc">Industrialised sky replacement, driven by one agent.</p>
+    <p class="metric mono">❤ 5156 &nbsp; 💬 139 &nbsp; ↗ 1399</p>
+  </figcaption></figure>
+<figure class="reel" data-src="../assets/video/v49.mp4">
+  <div class="frame">
+    <img src="../assets/poster/v49.jpg" alt="FILM-CITY PROMO" loading="lazy">
+    <button class="play" aria-label="Play FILM-CITY PROMO"><svg viewBox="0 0 24 24" width="26" height="26"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button>
+    <span class="sig mono">SIGNAL.04 · V49 · 130s</span>
+  </div>
+  <figcaption>
+    <span class="chip mono">HYB · Hybrid Production</span>
+    <h4>FILM-CITY PROMO</h4><p class="desc">A cinematic promo without a large post team.</p>
+    <p class="metric mono">❤ 3853 &nbsp; 💬 284 &nbsp; ↗ 808</p>
+  </figcaption></figure>
+<figure class="reel" data-src="../assets/video/v38.mp4">
+  <div class="frame">
+    <img src="../assets/poster/v38.jpg" alt="CINEMATIC AI SCORING" loading="lazy">
+    <button class="play" aria-label="Play CINEMATIC AI SCORING"><svg viewBox="0 0 24 24" width="26" height="26"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button>
+    <span class="sig mono">SIGNAL.05 · V38 · 86s</span>
+  </div>
+  <figcaption>
+    <span class="chip mono">AUD · Audio Engineering</span>
+    <h4>CINEMATIC AI SCORING</h4><p class="desc">A copyright-clear, film-grade scoring workflow.</p>
+    <p class="metric mono">❤ 3139 &nbsp; 💬 192 &nbsp; ↗ 584</p>
+  </figcaption></figure>
+<figure class="reel" data-src="../assets/video/v42.mp4">
+  <div class="frame">
+    <img src="../assets/poster/v42.jpg" alt="AERIAL REPAINT PIPELINE" loading="lazy">
+    <button class="play" aria-label="Play AERIAL REPAINT PIPELINE"><svg viewBox="0 0 24 24" width="26" height="26"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button>
+    <span class="sig mono">SIGNAL.06 · V42 · 113s</span>
+  </div>
+  <figcaption>
+    <span class="chip mono">RPT · Repaint &amp; Space</span>
+    <h4>AERIAL REPAINT PIPELINE</h4><p class="desc">Stable, controllable aerial repaint.</p>
+    <p class="metric mono">❤ 1394 &nbsp; 💬 330 &nbsp; ↗ 213</p>
+  </figcaption></figure>
+<figure class="reel" data-src="../assets/video/v21.mp4">
+  <div class="frame">
+    <img src="../assets/poster/v21.jpg" alt="INDUSTRIAL-GRADE OUTPUT" loading="lazy">
+    <button class="play" aria-label="Play INDUSTRIAL-GRADE OUTPUT"><svg viewBox="0 0 24 24" width="26" height="26"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button>
+    <span class="sig mono">SIGNAL.07 · V21 · 158s</span>
+  </div>
+  <figcaption>
+    <span class="chip mono">RPT · Repaint &amp; Space</span>
+    <h4>INDUSTRIAL-GRADE OUTPUT</h4><p class="desc">Industrial output through AI repaint.</p>
+    <p class="metric mono">❤ 1564 &nbsp; 💬 22 &nbsp; ↗ 393</p>
+  </figcaption></figure>
+<figure class="reel" data-src="../assets/video/v32.mp4">
+  <div class="frame">
+    <img src="../assets/poster/v32.jpg" alt="THE MOST STABLE WORKFLOW" loading="lazy">
+    <button class="play" aria-label="Play THE MOST STABLE WORKFLOW"><svg viewBox="0 0 24 24" width="26" height="26"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button>
+    <span class="sig mono">SIGNAL.08 · V32 · 76s</span>
+  </div>
+  <figcaption>
+    <span class="chip mono">TVC · Commercial TVC</span>
+    <h4>THE MOST STABLE WORKFLOW</h4><p class="desc">Our most stable AI commercial pipeline, in full.</p>
+    <p class="metric mono">❤ 1178 &nbsp; 💬 47 &nbsp; ↗ 236</p>
+  </figcaption></figure>
+<figure class="reel" data-src="../assets/video/v13.mp4">
+  <div class="frame">
+    <img src="../assets/poster/v13.jpg" alt="A FULL TVC IN ONE HOUR" loading="lazy">
+    <button class="play" aria-label="Play A FULL TVC IN ONE HOUR"><svg viewBox="0 0 24 24" width="26" height="26"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button>
+    <span class="sig mono">SIGNAL.09 · V13 · 38s</span>
+  </div>
+  <figcaption>
+    <span class="chip mono">TVC · Commercial TVC</span>
+    <h4>A FULL TVC IN ONE HOUR</h4><p class="desc">The whole TVC pipeline, in about an hour.</p>
+    <p class="metric mono">❤ 450 &nbsp; 💬 24 &nbsp; ↗ 104</p>
+  </figcaption></figure>
+<figure class="reel" data-src="../assets/video/v37.mp4">
+  <div class="frame">
+    <img src="../assets/poster/v37.jpg" alt="SIX CINEMATIC MOVES" loading="lazy">
+    <button class="play" aria-label="Play SIX CINEMATIC MOVES"><svg viewBox="0 0 24 24" width="26" height="26"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button>
+    <span class="sig mono">SIGNAL.10 · V37 · 78s</span>
+  </div>
+  <figcaption>
+    <span class="chip mono">FPV · Cinematography</span>
+    <h4>SIX CINEMATIC MOVES</h4><p class="desc">Six camera moves that rescue flat footage.</p>
+    <p class="metric mono">❤ 148 &nbsp; 💬 26 &nbsp; ↗ 15</p>
+  </figcaption></figure>
+<figure class="reel" data-src="../assets/video/v14.mp4">
+  <div class="frame">
+    <img src="../assets/poster/v14.jpg" alt="15s VIRAL PRODUCT VIDEO" loading="lazy">
+    <button class="play" aria-label="Play 15s VIRAL PRODUCT VIDEO"><svg viewBox="0 0 24 24" width="26" height="26"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button>
+    <span class="sig mono">SIGNAL.11 · V14 · 103s</span>
+  </div>
+  <figcaption>
+    <span class="chip mono">TVC · Commercial TVC</span>
+    <h4>15s VIRAL PRODUCT VIDEO</h4><p class="desc">Mass-produce e-commerce shorts in three steps.</p>
+    <p class="metric mono">❤ 100 &nbsp; 💬 3 &nbsp; ↗ 20</p>
+  </figcaption></figure>
+<figure class="reel" data-src="../assets/video/v09.mp4">
+  <div class="frame">
+    <img src="../assets/poster/v09.jpg" alt="MASTER SCENE CONSISTENCY" loading="lazy">
+    <button class="play" aria-label="Play MASTER SCENE CONSISTENCY"><svg viewBox="0 0 24 24" width="26" height="26"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button>
+    <span class="sig mono">SIGNAL.12 · V09 · 159s</span>
+  </div>
+  <figcaption>
+    <span class="chip mono">DRA · Digital Humans</span>
+    <h4>MASTER SCENE CONSISTENCY</h4><p class="desc">Build a stable space first, then generate.</p>
+    <p class="metric mono">❤ 298 &nbsp; 💬 8 &nbsp; ↗ 52</p>
+  </figcaption></figure></div>
+</section>
+
+<section class="sec" id="scope">
+  <div class="sec-head"><span class="kicker mono">Transparent scoping</span><h2 class="glitch">Four pillars.</h2><p class="dim">We scope by the value of the work, not by runtime. Four pillars set the range — exact figures on request.</p></div>
+  <div class="mini-grid"><div class="mini"><span class="big">①</span><span class="mono en">CREATIVE &amp; PREP</span><p>Script, storyboard, tone and compliance</p></div>
+<div class="mini"><span class="big">②</span><span class="mono en">AI GENERATION</span><p>Effective shot count × complexity tier</p></div>
+<div class="mini"><span class="big">③</span><span class="mono en">POST · GRADE · AUDIO</span><p>Frame and colour repair + score + subtitles</p></div>
+<div class="mini"><span class="big">④</span><span class="mono en">COMPUTE &amp; RISK</span><p>API / GPU + iteration buffer + risk premium</p></div></div>
+  <p class="formula mono">▶ Quote = hours × rate + compute × value factor + risk premium · project-based · on request</p>
+</section>
+
+<section class="sec alt" id="catalog">
+  <div class="sec-head"><span class="kicker mono">Product catalogue</span><h2 class="glitch">Broadcast packages.</h2><p class="dim">Ten productised packages · pricing is project-based, on request.</p></div>
+  <div class="table-wrap"><table class="sku">
+    <thead><tr><th>CODE</th><th>SCENARIO</th><th>BEST FOR</th><th>DELIVERS</th><th>ETA</th></tr></thead>
+    <tbody><tr><td class="mono code">S-01</td><td class="scn"><strong>Brand TVC</strong></td><td>Brands · FMCG · chains</td><td>15–60s master · landscape + vertical · multi-lang subs</td><td class="eta">5–10 days</td></tr>
+<tr><td class="mono code">S-02</td><td class="scn"><strong>Product Film</strong></td><td>Manufacturing · electronics · appliances · F&amp;B</td><td>Feature &amp; process visualisation</td><td class="eta">3–7 days</td></tr>
+<tr><td class="mono code">S-03</td><td class="scn"><strong>E-commerce Short</strong></td><td>E-commerce · live · brand channels</td><td>15–30s shorts · batchable</td><td class="eta">1–3 days each</td></tr>
+<tr><td class="mono code">S-04</td><td class="scn"><strong>IP Short Drama</strong></td><td>IP owners · MCNs · brands</td><td>Multi-episode · consistent cast</td><td class="eta">Per episode</td></tr>
+<tr><td class="mono code">S-05</td><td class="scn"><strong>Aerial &amp; FPV</strong></td><td>Tourism · property · automotive · events</td><td>One-take aerial / FPV</td><td class="eta">3–7 days</td></tr>
+<tr><td class="mono code">S-06</td><td class="scn"><strong>Tourism Film</strong></td><td>Government · attractions · tourism</td><td>AI + live-action promo</td><td class="eta">7–15 days</td></tr>
+<tr><td class="mono code">S-07</td><td class="scn"><strong>Industrial Film</strong></td><td>Manufacturing · industrial · B2B</td><td>Factory repaint · brand film</td><td class="eta">5–10 days</td></tr>
+<tr><td class="mono code">S-08</td><td class="scn"><strong>Footage Restoration</strong></td><td>Anyone with legacy footage</td><td>Repaint · sky · restoration</td><td class="eta">2–5 days</td></tr>
+<tr><td class="mono code">S-09</td><td class="scn"><strong>Voice &amp; Score</strong></td><td>Any video project</td><td>Multi-lang VO · score · rights-clear</td><td class="eta">1–3 days</td></tr>
+<tr><td class="mono code">S-10</td><td class="scn"><strong>Period &amp; Premium</strong></td><td>Culture · heritage · luxury brands</td><td>Period &amp; premium-texture imagery</td><td class="eta">5–10 days</td></tr></tbody></table></div>
+</section>
+
+<section class="sec" id="why">
+  <div class="sec-head"><span class="kicker mono">The edge</span><h2 class="glitch">Why lock to MUSE.</h2></div>
+  <div class="mini-grid"><div class="mini"><span class="mono en">STABILITY</span><h4>Industrial stability</h4><p>Engineered workflows, not gacha — repeatable, reusable delivery.</p></div>
+<div class="mini"><span class="mono en">ECONOMICS</span><h4>Cost &amp; speed</h4><p>Half the cost, day-scale turnaround, live-action + AI.</p></div>
+<div class="mini"><span class="mono en">FULL STACK</span><h4>One studio, end to end</h4><p>TVC → drama → aerial → audio, under one roof.</p></div>
+<div class="mini"><span class="mono en">LOCAL · MENA</span><h4>Dubai-based, multilingual</h4><p>Delivered locally across MENA — EN / AR / CN.</p></div></div>
+</section>
+
+<section class="sec alt" id="index">
+  <div class="sec-head"><h2 class="glitch">Full signal index.</h2><p class="dim">All 49 reels on record.</p></div>
+  <details class="idx"><summary class="mono">▶ Expand the full index</summary>
+  <div class="table-wrap"><table class="idx-tbl"><thead><tr><th>#</th><th>SIGNAL</th><th>MODULE</th><th>❤</th></tr></thead>
+  <tbody><tr><td class="mono">01</td><td class="mono sig">V01</td><td class="mono dim">Repaint &amp; Space</td><td class="mono eta">428</td></tr>
+<tr><td class="mono">02</td><td class="mono sig">V02</td><td class="mono dim">Commercial TVC</td><td class="mono eta">31</td></tr>
+<tr><td class="mono">03</td><td class="mono sig">V03</td><td class="mono dim">Digital Humans</td><td class="mono eta">83</td></tr>
+<tr><td class="mono">04</td><td class="mono sig">V04</td><td class="mono dim">Digital Humans</td><td class="mono eta">103</td></tr>
+<tr><td class="mono">05</td><td class="mono sig">V05</td><td class="mono dim">Digital Humans</td><td class="mono eta">71</td></tr>
+<tr><td class="mono">06</td><td class="mono sig">V06</td><td class="mono dim">Digital Humans</td><td class="mono eta">137</td></tr>
+<tr><td class="mono">07</td><td class="mono sig">V07</td><td class="mono dim">Digital Humans</td><td class="mono eta">21</td></tr>
+<tr><td class="mono">08</td><td class="mono sig">V08</td><td class="mono dim">Digital Humans</td><td class="mono eta">56</td></tr>
+<tr><td class="mono">09</td><td class="mono sig">V09</td><td class="mono dim">Digital Humans</td><td class="mono eta">298</td></tr>
+<tr><td class="mono">10</td><td class="mono sig">V10</td><td class="mono dim">Digital Humans</td><td class="mono eta">63</td></tr>
+<tr><td class="mono">11</td><td class="mono sig">V11</td><td class="mono dim">HUB</td><td class="mono eta">191</td></tr>
+<tr><td class="mono">12</td><td class="mono sig">V12</td><td class="mono dim">Digital Humans</td><td class="mono eta">61</td></tr>
+<tr><td class="mono">13</td><td class="mono sig">V13</td><td class="mono dim">HUB</td><td class="mono eta">450</td></tr>
+<tr><td class="mono">14</td><td class="mono sig">V14</td><td class="mono dim">Commercial TVC</td><td class="mono eta">100</td></tr>
+<tr><td class="mono">15</td><td class="mono sig">V15</td><td class="mono dim">Repaint &amp; Space</td><td class="mono eta">276</td></tr>
+<tr><td class="mono">16</td><td class="mono sig">V16</td><td class="mono dim">Repaint &amp; Space</td><td class="mono eta">234</td></tr>
+<tr><td class="mono">17</td><td class="mono sig">V17</td><td class="mono dim">Cinematography</td><td class="mono eta">170</td></tr>
+<tr><td class="mono">18</td><td class="mono sig">V18</td><td class="mono dim">HUB</td><td class="mono eta">85</td></tr>
+<tr><td class="mono">19</td><td class="mono sig">V19</td><td class="mono dim">HUB</td><td class="mono eta">91</td></tr>
+<tr><td class="mono">20</td><td class="mono sig">V20</td><td class="mono dim">Repaint &amp; Space</td><td class="mono eta">636</td></tr>
+<tr><td class="mono">21</td><td class="mono sig">V21</td><td class="mono dim">Repaint &amp; Space</td><td class="mono eta">1564</td></tr>
+<tr><td class="mono">22</td><td class="mono sig">V22</td><td class="mono dim">HUB</td><td class="mono eta">140</td></tr>
+<tr><td class="mono">23</td><td class="mono sig">V23</td><td class="mono dim">Repaint &amp; Space</td><td class="mono eta">1266</td></tr>
+<tr><td class="mono">24</td><td class="mono sig">V24</td><td class="mono dim">Audio Engineering</td><td class="mono eta">138</td></tr>
+<tr><td class="mono">25</td><td class="mono sig">V25</td><td class="mono dim">HUB</td><td class="mono eta">67</td></tr>
+<tr><td class="mono">26</td><td class="mono sig">V26</td><td class="mono dim">Repaint &amp; Space</td><td class="mono eta">7395</td></tr>
+<tr><td class="mono">27</td><td class="mono sig">V27</td><td class="mono dim">Repaint &amp; Space</td><td class="mono eta">257</td></tr>
+<tr><td class="mono">28</td><td class="mono sig">V28</td><td class="mono dim">HUB</td><td class="mono eta">158</td></tr>
+<tr><td class="mono">29</td><td class="mono sig">V29</td><td class="mono dim">Commercial TVC</td><td class="mono eta">1990</td></tr>
+<tr><td class="mono">30</td><td class="mono sig">V30</td><td class="mono dim">Repaint &amp; Space</td><td class="mono eta">5156</td></tr>
+<tr><td class="mono">31</td><td class="mono sig">V31</td><td class="mono dim">HUB</td><td class="mono eta">133</td></tr>
+<tr><td class="mono">32</td><td class="mono sig">V32</td><td class="mono dim">Commercial TVC</td><td class="mono eta">1178</td></tr>
+<tr><td class="mono">33</td><td class="mono sig">V33</td><td class="mono dim">HUB</td><td class="mono eta">110</td></tr>
+<tr><td class="mono">34</td><td class="mono sig">V34</td><td class="mono dim">HUB</td><td class="mono eta">177</td></tr>
+<tr><td class="mono">35</td><td class="mono sig">V35</td><td class="mono dim">Commercial TVC</td><td class="mono eta">94</td></tr>
+<tr><td class="mono">36</td><td class="mono sig">V36</td><td class="mono dim">Hybrid Production</td><td class="mono eta">555</td></tr>
+<tr><td class="mono">37</td><td class="mono sig">V37</td><td class="mono dim">Cinematography</td><td class="mono eta">148</td></tr>
+<tr><td class="mono">38</td><td class="mono sig">V38</td><td class="mono dim">Audio Engineering</td><td class="mono eta">3139</td></tr>
+<tr><td class="mono">39</td><td class="mono sig">V39</td><td class="mono dim">Commercial TVC</td><td class="mono eta">205</td></tr>
+<tr><td class="mono">40</td><td class="mono sig">V40</td><td class="mono dim">Cinematography</td><td class="mono eta">6305</td></tr>
+<tr><td class="mono">41</td><td class="mono sig">V41</td><td class="mono dim">Commercial TVC</td><td class="mono eta">2496</td></tr>
+<tr><td class="mono">42</td><td class="mono sig">V42</td><td class="mono dim">Repaint &amp; Space</td><td class="mono eta">1394</td></tr>
+<tr><td class="mono">43</td><td class="mono sig">V43</td><td class="mono dim">Commercial TVC</td><td class="mono eta">26</td></tr>
+<tr><td class="mono">44</td><td class="mono sig">V44</td><td class="mono dim">Hybrid Production</td><td class="mono eta">201</td></tr>
+<tr><td class="mono">45</td><td class="mono sig">V45</td><td class="mono dim">Commercial TVC</td><td class="mono eta">77</td></tr>
+<tr><td class="mono">46</td><td class="mono sig">V46</td><td class="mono dim">Audio Engineering</td><td class="mono eta">231</td></tr>
+<tr><td class="mono">47</td><td class="mono sig">V47</td><td class="mono dim">Hybrid Production</td><td class="mono eta">514</td></tr>
+<tr><td class="mono">48</td><td class="mono sig">V48</td><td class="mono dim">Hybrid Production</td><td class="mono eta">39</td></tr>
+<tr><td class="mono">49</td><td class="mono sig">V49</td><td class="mono dim">Hybrid Production</td><td class="mono eta">3853</td></tr></tbody></table></div></details>
+</section>
+
+<div class="ornament" aria-hidden="true"><span></span></div>
+
+<footer class="contact" id="contact">
+  <div class="hero-bars" aria-hidden="true"><i></i><i></i></div>
+  <h2 class="glitch big2">LET'S ROLL.</h2>
+  <p class="mono dim">START YOUR SIGNAL · START A PROJECT</p>
+  <div class="contact-grid">
+    <a class="cc" href="mailto:leon@aimuse.ae"><span class="mono">MAIL</span><b>leon@aimuse.ae</b></a>
+    <a class="cc" href="https://www.aimuse.ae" target="_blank" rel="noopener"><span class="mono">WEB</span><b>www.aimuse.ae</b></a>
+    <a class="cc" href="https://wa.me/971555671672" target="_blank" rel="noopener"><span class="mono">WHATSAPP</span><b>+971 55 567 1672</b></a>
+    <div class="cc"><span class="mono">WECHAT</span><b>Leon Wang</b></div>
+  </div>
+  <p class="foot mono">MUSE INFORMATION SERVICES L.L.C-FZ · DUBAI, UAE · CN +86 156 0167 8377 · © 2026</p>
+</footer>
+<script>// click-to-play reels: swap poster for a <video>, autoplay, pause others & off-screen
+(function(){
+  var reels = document.querySelectorAll('.reel');
+  var players = [];
+  reels.forEach(function(reel){
+    var btn = reel.querySelector('.play');
+    if(!btn) return;
+    btn.addEventListener('click', function(){
+      var frame = reel.querySelector('.frame');
+      var v = document.createElement('video');
+      v.src = reel.dataset.src;
+      v.controls = true; v.autoplay = true; v.playsInline = true; v.preload = 'metadata';
+      v.setAttribute('controlslist','nodownload');
+      // keep the signal tag, replace poster + button
+      var img = frame.querySelector('img'); if(img) img.remove();
+      btn.remove();
+      frame.appendChild(v);
+      players.push(v);
+      // pause other playing videos
+      players.forEach(function(p){ if(p!==v) p.pause(); });
+      v.play().catch(function(){});
+    });
+  });
+  // pause videos when scrolled off-screen
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        var vid = e.target.querySelector('video');
+        if(vid && !e.isIntersecting && !vid.paused) vid.pause();
+      });
+    }, {threshold:0.25});
+    reels.forEach(function(r){ io.observe(r); });
+  }
+})();
+</script>
+</body>
+</html>

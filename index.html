@@ -53,10 +53,15 @@ h1,h2,h3,h4{font-family:var(--disp);font-weight:700;letter-spacing:-.02em;line-h
 .nav .links a::after{content:"";position:absolute;left:0;bottom:-2px;width:0;height:1px;background:var(--gold);transition:width .25s}
 .nav .links a:hover,.nav .links a:focus-visible{color:var(--gold)}
 .nav .links a:hover::after{width:100%}
+.nav-end{display:flex;align-items:center;gap:.85rem}
+.nav .lang{font-family:var(--mono);font-size:.6rem;letter-spacing:.18em;color:var(--gold);
+  border:1px solid var(--gold-dim);padding:.32rem .62rem;transition:.25s}
+.nav .lang:hover,.nav .lang:focus-visible{background:var(--gold);color:var(--bg);border-color:var(--gold)}
 .rec{font-size:.6rem;letter-spacing:.22em;color:var(--gold);display:flex;align-items:center;gap:.45rem}
 .rec::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--gold);
   box-shadow:0 0 8px var(--gold);animation:blink 1.8s infinite}
 @keyframes blink{50%{opacity:.25}}
+@media(max-width:560px){.nav .rec{display:none}}
 
 /* ornament divider */
 .ornament{display:flex;align-items:center;justify-content:center;gap:1.2rem;max-width:var(--max);
@@ -254,7 +259,7 @@ a.cc:hover,a.cc:focus-visible{transform:translateY(-4px);border-color:var(--gold
     <a href="#channels">能力 CHANNELS</a><a href="#showcase">样片 SHOWCASE</a>
     <a href="#catalog">产品 CATALOG</a><a href="#contact">联系 CONTACT</a>
   </div>
-  <span class="rec mono">● REC</span>
+  <div class="nav-end"><a class="lang" href="en/">EN</a><span class="rec mono">● REC</span></div>
 </nav>
 
 <header class="hero" id="top">
